@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(26, 26, 53);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+main {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+h1 {
+  color: hotpink;
+  text-align: center;
+  letter-spacing: 0.5rem;
+}
