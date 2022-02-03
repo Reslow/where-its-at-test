@@ -15,3 +15,27 @@ h1 {
   text-align: center;
   letter-spacing: 0.5rem;
 }
+
+/* eventCard */
+.eventCard {
+  background-color: rgb(30, 30, 59);
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  color: #d8d8d8;
+  justify-content: space-evenly;
+}
+.eventCardMiddleSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventDate {
+  border: 1px solid #d8d8d8;
+  max-width: 3ch;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
