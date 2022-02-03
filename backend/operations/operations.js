@@ -8,7 +8,7 @@ const eventList = {
       title: "Lasse-Stefanz",
       location: "Kjell Härnqvistsalen",
       time: "19:00 - 21:00",
-      date: "21032022",
+      date: "21 mars",
       price: 350,
     },
     {
@@ -16,7 +16,7 @@ const eventList = {
       title: "Pelle trubadu",
       location: "pubelipuben",
       time: "22:00 - 00:00",
-      date: "29032022",
+      date: "29 mars",
       price: 110,
     },
     {
@@ -24,7 +24,7 @@ const eventList = {
       title: "Kajsas Kör",
       location: "Göta Platsen",
       time: "15:00 - 16:00",
-      date: "10042022",
+      date: "10 april",
       price: 99,
     },
     {
@@ -32,7 +32,7 @@ const eventList = {
       title: "Klubben Untz",
       location: "Din favoritkällare",
       time: "22:00 - du tröttnar",
-      date: "17042022",
+      date: "17 april",
       price: 150,
     },
   ],
