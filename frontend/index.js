@@ -37,27 +37,27 @@ function createElements(eventCard, eventItem) {
   const eventPrice = document.createElement("p");
   eventPrice.classList.add("eventPrice");
   console.log("C E");
-  setContent(
+  setContent({
     eventItem,
     eventDate,
     eventTitle,
     eventLocation,
     eventTime,
-    eventPrice
-  );
+    eventPrice,
+  });
   eventCardMiddleAndRightSection.append(eventCardMiddleSection, eventPrice);
   eventCardMiddleSection.append(eventTitle, eventLocation, eventTime);
   eventCard.append(eventDate, eventCardMiddleAndRightSection);
 }
 
-function setContent(
+function setContent({
   eventItem,
-  eventDate,
   eventTitle,
   eventLocation,
   eventTime,
-  eventPrice
-) {
+  eventPrice,
+  eventDate,
+}) {
   eventDate.innerText = `${eventItem.date}`;
   eventTitle.innerText = `${eventItem.title}`;
   eventLocation.innerText = `${eventItem.location}`;
