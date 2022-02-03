@@ -1,5 +1,17 @@
 let eventCon = document.getElementById("eventCon");
 
+async function getTicket(eventItem) {
+  const res = await fetch("http://localhost:3000/api/getTicket", {
+    method: "POST",
+    body: JSON.stringify(eventItem),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+  console.log(data);
+}
+
 // fetch eventlist-data from server
 async function getEventList() {
   const res = await fetch("http://localhost:3000/api/eventlist");
@@ -14,8 +26,9 @@ function createEventCard(eventItem) {
   eventCon.appendChild(eventCard);
   console.log("C C");
   createElements(eventCard, eventItem);
+
   eventCard.addEventListener("click", () => {
-    alert("hello");
+    getTicket(eventItem);
   });
 }
 

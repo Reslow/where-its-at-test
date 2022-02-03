@@ -12,7 +12,6 @@ const eventList = {
       price: 350,
     },
     {
-      id: 2,
       title: "Pelle trubadu",
       location: "pubelipuben",
       time: "22:00 - 00:00",
@@ -20,7 +19,6 @@ const eventList = {
       price: 110,
     },
     {
-      id: 3,
       title: "Kajsas Kör",
       location: "Göta Platsen",
       time: "15:00 - 16:00",
@@ -28,7 +26,6 @@ const eventList = {
       price: 99,
     },
     {
-      id: 4,
       title: "Klubben Untz",
       location: "Din favoritkällare",
       time: "22:00 - du tröttnar",
@@ -47,4 +44,10 @@ async function getEvent() {
   return eventItems;
 }
 
-module.exports = { saveEvent, getEvent };
+async function getAccountByTitle(title) {
+  const account = await database.find({ "events.title": title });
+
+  return account;
+}
+
+module.exports = { saveEvent, getEvent, getAccountByTitle };

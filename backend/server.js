@@ -4,7 +4,11 @@ const app = express();
 app.use(express.static("../frontend"));
 app.use(express.json());
 
-const { getEvent, saveEvent } = require("./operations/operations");
+const {
+  getEvent,
+  saveEvent,
+  getAccountByTitle,
+} = require("./operations/operations");
 
 saveEvent();
 
@@ -14,10 +18,25 @@ app.get("/api/eventlist", async (req, res) => {
     event: "",
   };
   let event = await getEvent();
-  console.log(event);
 
   responseObject.event = event[0];
-  console.log(responseObject);
+
+  res.json(responseObject);
+});
+
+app.post("/api/getTicket", async (req, res) => {
+  console.log("API/getTicket");
+  // kolla i databasen om biljett finns kvar
+  let ticketInformation = req.body;
+  const responseObject = {
+    success: false,
+    ticket: "",
+  };
+  console.log(ticketInformation.title);
+  let ticket = await getAccountByTitle(ticketInformation.title);
+  console.log(ticket);
+
+  responseObject.ticket = ticket;
 
   res.json(responseObject);
 });
