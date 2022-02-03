@@ -9,15 +9,18 @@ async function getEventList() {
   ShowEventList(data.event.events);
 }
 
-// create elements for event List and set content to element
+// create elements for event-List and set content to element
 function ShowEventList(eventList) {
   eventList.forEach((eventItem) => {
     const eventCard = document.createElement("div");
     eventCard.classList.add("eventCard");
 
     const eventCardMiddleSection = document.createElement("div");
-
     eventCardMiddleSection.classList.add("eventCardMiddleSection");
+    const eventCardMiddleAndRightSection = document.createElement("div");
+    eventCardMiddleAndRightSection.classList.add(
+      "eventCardMiddleAndRightSection"
+    );
 
     const eventDate = document.createElement("p");
     eventDate.classList.add("eventDate");
@@ -38,10 +41,11 @@ function ShowEventList(eventList) {
     eventTitle.innerText = `${eventItem.title}`;
     eventLocation.innerText = `${eventItem.location}`;
     eventTime.innerText = `${eventItem.time}`;
-    eventPrice.innerText = `${eventItem.price}`;
+    eventPrice.innerText = `${eventItem.price} :-`;
 
+    eventCardMiddleAndRightSection.append(eventCardMiddleSection, eventPrice);
     eventCardMiddleSection.append(eventTitle, eventLocation, eventTime);
-    eventCard.append(eventDate, eventCardMiddleSection, eventPrice);
+    eventCard.append(eventDate, eventCardMiddleAndRightSection);
     eventCon.appendChild(eventCard);
   });
 }
