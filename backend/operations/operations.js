@@ -2,7 +2,7 @@ const nedb = require("nedb-promise");
 const database = new nedb({ filename: "accounts.db", autoload: true });
 
 const eventList = {
-  type: "events",
+  type: "event",
   events: [
     {
       title: "Lasse-Stefanz",
@@ -40,14 +40,19 @@ function saveEvent() {
 }
 
 async function getEvent() {
-  const eventItems = await database.find({ type: "events" });
+  const eventItems = await database.find({ type: "event" });
   return eventItems;
 }
 
 async function getAccountByTitle(title) {
-  const account = await database.find({ "events.title": title });
+  console.log(title);
+  const event = await database.find({ title: "Lasse-Stefanz" });
+  if (event) {
+    console.log(`event : ` + typeof event);
+  }
+  console.log(event);
 
-  return account;
+  return event;
 }
 
 module.exports = { saveEvent, getEvent, getAccountByTitle };
