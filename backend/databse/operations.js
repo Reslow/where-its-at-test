@@ -5,54 +5,63 @@ const eventList = {
   type: "event",
   events: [
     {
+      type: "event",
       title: "Lasse-Stefanz",
       location: "Kjell Härnqvistsalen",
-      time: "19:00 - 21:00",
+      from: "19:00 ",
+      to: "21:00",
       date: "21 mars",
       price: 350,
     },
     {
+      type: "event",
       title: "Pelle trubadu",
       location: "pubelipuben",
-      time: "22:00 - 00:00",
+      from: "22:00",
+      to: "00:00",
       date: "29 mars",
       price: 110,
     },
     {
+      type: "event",
       title: "Kajsas Kör",
       location: "Göta Platsen",
-      time: "15:00 - 16:00",
+      from: "15:00",
+      to: "16:00",
       date: "10 april",
       price: 99,
     },
     {
+      type: "event",
       title: "Klubben Untz",
       location: "Din favoritkällare",
-      time: "22:00 - du tröttnar",
+      from: "22:00",
+      to: "du tröttnar",
       date: "17 april",
       price: 150,
     },
   ],
 };
 
-function saveEvent() {
-  database.insert(eventList);
+function saveEvents() {
+  database.insert(eventList.events);
 }
 
-async function getEvent() {
+async function getEvents() {
   const eventItems = await database.find({ type: "event" });
+  console.log(eventItems);
   return eventItems;
 }
 
-async function getAccountByTitle(title) {
-  console.log(title);
-  const event = await database.find({ title: "Lasse-Stefanz" });
-  if (event) {
-    console.log(`event : ` + typeof event);
-  }
-  console.log(event);
+async function getInfoById(idnr) {
+  const eventItems = await database.find({ _id: idnr });
+  console.log(eventItems);
+  return eventItems;
+}
 
+async function getInfoByTitle(title) {
+  const event = await database.find({ title: title });
   return event;
 }
 
-module.exports = { saveEvent, getEvent, getAccountByTitle };
+module.exports = { saveEvents, getEvents, getInfoByTitle, getInfoById };

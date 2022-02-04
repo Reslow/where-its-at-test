@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhereIts@</title>
+    <link rel="stylesheet" href="./styles/myticket.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="headline">Events</h1>
+      <p class="headline">Here is your ticket!</p>
+    </header>
+    <main>
+      <div id="ticketContainer">
+        <div id="ticketInfoTop">
+          <div id="what">
+            <p>what</p>
+            <h1 id="whatElement">Artist</h1>
+          </div>
+          <div id="where">
+            <p>where</p>
+            <h2 id="whereElement">location</h2>
+          </div>
+        </div>
+        <div id="ticketInfoBottom">
+          <div id="when">
+            <p>when</p>
+            <h2 id="whenElement">date</h2>
+          </div>
+          <div id="from">
+            <p>from</p>
+            <h2 id="fromElement">date</h2>
+          </div>
+          <div id="to">
+            <p>to</p>
+            <h2 id="toElement">date</h2>
+          </div>
+        </div>
+        <div id="ticketBarcodeSection">
+          <img
+            src="./images/bar-code.svg"
+            id="imgBarCode"
+            alt="bar-code"
+            title="bar-code"
+          />
+          <p>ticket Nr: <span id="ticketId">abc123</span></p>
+        </div>
+      </div>
+    </main>
+    <script src="./myticket.js"></script>
+  </body>
+</html>

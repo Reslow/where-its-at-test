@@ -1,35 +1,26 @@
 let eventCon = document.getElementById("eventCon");
 
-async function getTicket(eventItem) {
-  const res = await fetch("http://localhost:3000/api/getTicket", {
-    method: "POST",
-    body: JSON.stringify(eventItem),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await res.json();
-  console.log(data);
-}
-
 // fetch eventlist-data from server
 async function getEventList() {
   const res = await fetch("http://localhost:3000/api/eventlist");
   const data = await res.json();
-  ShowEventList(data.event.events);
+  console.log(data);
+  ShowEventList(data.event);
 }
 
 // fetch eventlist-data from server
 function createEventCard(eventItem) {
-  const eventCard = document.createElement("div");
+  const eventCard = document.createElement("a");
   eventCard.classList.add("eventCard");
+  eventCard.setAttribute(
+    "href",
+    `http://localhost:3000/myticket.html?id=${eventItem._id}`
+  );
   eventCon.appendChild(eventCard);
-  console.log("C C");
-  createElements(eventCard, eventItem);
 
-  eventCard.addEventListener("click", () => {
-    getTicket(eventItem);
-  });
+  createElements(eventCard, eventItem);
+  console.log("eventitem");
+  console.log(eventItem);
 }
 
 function createElements(eventCard, eventItem) {
@@ -45,21 +36,24 @@ function createElements(eventCard, eventItem) {
   eventTitle.classList.add("eventTitle");
   const eventLocation = document.createElement("p");
   eventLocation.classList.add("eventLocation");
-  const eventTime = document.createElement("p");
-  eventTime.classList.add("eventTime");
+  const eventFrom = document.createElement("p");
+  eventFrom.classList.add("eventFrom");
+  const eventTo = document.createElement("p");
+  eventTo.classList.add("eventTo");
   const eventPrice = document.createElement("p");
   eventPrice.classList.add("eventPrice");
-  console.log("C E");
+
   setContent({
     eventItem,
     eventDate,
     eventTitle,
     eventLocation,
-    eventTime,
+    eventFrom,
+    eventTo,
     eventPrice,
   });
   eventCardMiddleAndRightSection.append(eventCardMiddleSection, eventPrice);
-  eventCardMiddleSection.append(eventTitle, eventLocation, eventTime);
+  eventCardMiddleSection.append(eventTitle, eventLocation, eventFrom, eventTo);
   eventCard.append(eventDate, eventCardMiddleAndRightSection);
 }
 
@@ -67,19 +61,24 @@ function setContent({
   eventItem,
   eventTitle,
   eventLocation,
-  eventTime,
+  eventFrom,
+  eventTo,
   eventPrice,
   eventDate,
 }) {
   eventDate.innerText = `${eventItem.date}`;
   eventTitle.innerText = `${eventItem.title}`;
   eventLocation.innerText = `${eventItem.location}`;
-  eventTime.innerText = `${eventItem.time}`;
+  eventFrom.innerText = `${eventItem.from}`;
+  eventTo.innerText = `${eventItem.to}`;
   eventPrice.innerText = `${eventItem.price} :-`;
 }
 
 function ShowEventList(eventList) {
+  console.log("SHOW ARRAY");
+  console.log(eventList);
   eventList.forEach((eventItem) => {
+    console.log(eventItem);
     createEventCard(eventItem);
   });
 }
