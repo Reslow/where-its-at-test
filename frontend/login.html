@@ -17,13 +17,21 @@
       <h3>STAFF</h3>
     </header>
     <main>
-      <div id="loginContainer">
-        <input type="text" id="username" placeholder="username" />
+      <div class="container hide" id="signup">
+        <input type="text" id="signupUsername" placeholder="username" />
 
-        <input type="password" id="password" placeholder="Password" />
+        <input type="password" id="SignuoPassword" placeholder="Password" />
 
-        <button id="loginBtn">Logga in</button>
+        <button id="signupBtn" class="btn">sign up</button>
       </div>
+      <div class="container" id="login">
+        <input type="text" id="loginUsername" placeholder="username" />
+
+        <input type="password" id="loginPassword" placeholder="Password" />
+
+        <button id="loginBtn" class="btn">Logga in</button>
+      </div>
+      <input type="button" id="TocreateAccount" value="signup"></input>
     </main>
     <script src="login.js"></script>
   </body>
