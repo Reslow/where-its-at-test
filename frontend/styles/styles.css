@@ -1,7 +1,7 @@
 /* main */
 
 body {
-  background-color: #1a1a35;
+  background-color: #221f40;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
@@ -14,7 +14,7 @@ main {
 }
 
 .headline {
-  color: hotpink;
+  color: #d36a99;
   text-align: center;
   letter-spacing: 0.5rem;
 }
@@ -29,19 +29,18 @@ header button {
   color: orange;
   box-shadow: #3f3e3e46 4px 3px 3px 3px;
   border-radius: 3px;
-  background-color: #1a1a35;
+  background-color: #221f40;
   border: orange 2px solid;
   cursor: pointer;
 }
 
 header button:hover {
   background-color: rgb(248, 170, 25);
-  color: #1a1a35;
+  color: #221f40;
 }
 
 /* eventCard */
 .eventCard {
-  background-color: rgb(30, 30, 59);
   padding: 10px;
   margin-top: 20px;
   display: flex;
@@ -49,35 +48,51 @@ header button:hover {
   color: #d8d8d8;
   justify-content: space-evenly;
   cursor: pointer;
+  text-decoration-line: none;
+  box-shadow: #1f1c3b 3px 2px 15px 3px;
 }
 .eventCardMiddleSection {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   line-height: 0%;
 }
-.eventCardMiddleAndRightSection {
-  justify-content: space-evenly;
 
+.eventCardTimeSection {
+  display: flex;
+  flex-direction: row;
+}
+.eventCardMiddleAndRightSection {
   border-bottom: 1px solid rgba(110, 110, 128, 0.685);
   display: flex;
-  min-width: 70%;
+  min-width: 80%;
   flex-direction: row;
+  margin-left: 20px;
 }
 .eventDate {
   border: 1px solid #d8d8d8;
   max-width: 3ch;
   padding: 20px;
   text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto;
 }
 .eventPrice {
   align-self: self-end;
-  color: rgb(7, 168, 155);
+  color: #5fbbb8;
+  margin: 5px;
 }
 
-.eventTime,
-.eventLocation {
+.eventLocation,
+.eventPrice,
+.eventFrom,
+.eventTo {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.eventPrice {
+  font-weight: bold;
+}
+
+.eventTo {
+  margin-left: 5px;
 }
