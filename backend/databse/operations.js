@@ -43,6 +43,8 @@ const eventList = {
   ],
 };
 
+// event operations
+
 function saveEvents() {
   database.insert(eventList.events);
 }
@@ -64,4 +66,21 @@ async function getInfoByTitle(title) {
   return event;
 }
 
-module.exports = { saveEvents, getEvents, getInfoByTitle, getInfoById };
+// account operations
+function saveAccount(account) {
+  database.insert(account);
+}
+
+async function getAccountByUsername(username) {
+  const account = await database.find({ username: username });
+  return account;
+}
+
+module.exports = {
+  saveEvents,
+  getEvents,
+  getInfoByTitle,
+  getInfoById,
+  saveAccount,
+  getAccountByUsername,
+};
