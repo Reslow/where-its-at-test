@@ -16,6 +16,7 @@ const {
 
 // linking to bcrypt
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
+const { staff } = require("./middleware/auth");
 
 // saving eventList, maybe should change thid so only save if we have not saved before
 
@@ -64,7 +65,13 @@ app.post("/api/createaccount", async (req, res) => {
     responseObject.usernameExist = true;
   }
 
+  //  här sätter jag en user till user:roll för att testning av roller
   if (responseObject.usernameExist == false) {
+    if (credentials.username == "user") {
+      credentials.role = "user";
+    } else {
+      credentials.role = "staff";
+    }
     const hashedPassword = await hashPassword(credentials.password);
     credentials.password = hashedPassword;
     saveAccount(credentials);
@@ -72,7 +79,7 @@ app.post("/api/createaccount", async (req, res) => {
   res.json(responseObject);
 });
 
-app.post("/api/login", async (req, res) => {
+app.post("/api/login", staff, async (req, res) => {
   const credentials = req.body;
 
   const responseObject = {
@@ -102,6 +109,7 @@ app.post("/api/login", async (req, res) => {
 app.get("/api/loggedin", async (req, res) => {
   console.log("--LOGGEDIN SEVRER");
   const token = req.headers.authorization.replace("Bearer ", "");
+
   const responseObject = {
     loggedIn: false,
   };
