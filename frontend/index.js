@@ -4,7 +4,7 @@ let eventCon = document.getElementById("eventCon");
 async function getEventList() {
   const res = await fetch("http://localhost:3000/api/eventlist");
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   ShowEventList(data.event);
 }
 
@@ -19,8 +19,8 @@ function createEventCard(eventItem) {
   eventCon.appendChild(eventCard);
 
   createElements(eventCard, eventItem);
-  console.log("eventitem");
-  console.log(eventItem);
+  // console.log("eventitem");
+  // console.log(eventItem);
 }
 
 function createElements(eventCard, eventItem) {
@@ -82,10 +82,10 @@ function setContent({
 }
 
 function ShowEventList(eventList) {
-  console.log("SHOW ARRAY");
-  console.log(eventList);
+  // console.log("SHOW ARRAY");
+  // console.log(eventList);
   eventList.forEach((eventItem) => {
-    console.log(eventItem);
+    // console.log(eventItem);
     createEventCard(eventItem);
   });
 }

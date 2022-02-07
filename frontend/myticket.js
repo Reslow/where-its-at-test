@@ -7,7 +7,6 @@ const to = document.getElementById("toElement");
 const ticketId = document.getElementById("ticketId");
 
 function setContentToElements(info) {
-  console.log(info[0].title);
   what.innerText = info[0].title;
   where.innerText = info[0].location;
   when.innerText = info[0].date;

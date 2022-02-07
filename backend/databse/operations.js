@@ -49,7 +49,7 @@ const eventList = {
 };
 
 // ***event operations***
-function saveEvents() {
+async function saveEvents() {
   const db = await database.find({});
   if (db == 0) database.insert(eventList.events);
 }
@@ -62,12 +62,13 @@ async function getEvents() {
 
 async function getInfoById(idnr) {
   const eventItems = await database.find({ _id: idnr });
-  // console.log(eventItems);
+  console.log(eventItems);
   return eventItems;
 }
 
 async function getInfoByTitle(title) {
   const event = await database.find({ title: title });
+
   return event;
 }
 

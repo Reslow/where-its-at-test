@@ -14,13 +14,12 @@ const {
   saveAccount,
 } = require("./databse/operations");
 
+// saving eventList, maybe should change thid so only save if we have not saved before
+saveEvents();
+
 // linking to bcrypt
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
 const { staff } = require("./middleware/auth");
-
-// saving eventList, maybe should change thid so only save if we have not saved before
-
-saveEvents();
 
 //  looking for events thats is saved
 app.get("/api/eventlist", async (req, res) => {
@@ -45,7 +44,9 @@ app.get("/api/getticket", async (req, res) => {
     ticket: "",
   };
   let ticket = await getInfoById(ticketId);
+  console.log(ticket);
   responseObject.ticket = ticket;
+
   res.json(responseObject);
 });
 
@@ -57,7 +58,7 @@ app.post("/api/createaccount", async (req, res) => {
     success: true,
     usernameExist: false,
   };
-  console.log(credentials.username);
+  // console.log(credentials.username);
   const usernameExist = await getAccountByUsername(credentials.username);
   // if arr returning empty  user exist
   if (usernameExist.length > 0) {
@@ -88,7 +89,7 @@ app.post("/api/login", staff, async (req, res) => {
     msg: "",
   };
   const account = await getAccountByUsername(credentials.username);
-  console.log(account);
+  // console.log(account);
   if (account.length > 0) {
     const isCorrectPassword = await comparePassword(
       credentials.password,
@@ -134,6 +135,13 @@ app.get("/api/logout", (req, res) => {
     success: "true",
   };
   res.json(responseObject);
+});
+
+app.get("/api/getnr", (req, res) => {
+  const number = req.body;
+  console.log(number);
+
+  res.json(number);
 });
 
 app.listen(3000, () => {
