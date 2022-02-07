@@ -1,4 +1,6 @@
 let logoutBtn = document.querySelector("#logoutBtn");
+let verifyInput = document.getElementById("verifyInput");
+let verifyBtn = document.getElementById("verifyBtn");
 
 // check if user is loggedin ifnot redirect
 
@@ -30,6 +32,28 @@ async function logOut() {
     window.location.href = "http://localhost:3000/";
   }
 }
+
+async function verifyticketNr(ticket) {
+  console.log(ticket);
+  console.log(typeof ticket);
+
+  const res = await fetch("http://localhost:3000/api/verify", {
+    method: "POST",
+    body: JSON.stringify({ ticket }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await res.json();
+
+  console.log(data);
+}
+
+verifyBtn.addEventListener("click", () => {
+  const ticketNr = verifyInput.value;
+  console.log(ticketNr);
+  verifyticketNr(ticketNr);
+});
 
 // eventlistner on logoutbtn
 logoutBtn.addEventListener("click", () => {

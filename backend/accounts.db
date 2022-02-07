@@ -1,15 +1,43 @@
-{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"_id":"F6fba3E3Cit0TmcB"}
-{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"_id":"H0Ev8hGVew6oEC9q"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q"],"_id":"HXU0RZaqOUIauiTz"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB"],"_id":"LCThGrNJf3OBe1ns"}
-{"type":"ticket-orders","orders":[],"_id":"V1o4HZO5q8zpygTQ"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB"],"_id":"XJ49Oa4Ey0vudgzx"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":{},"_id":"YFO4zzIvENHfDWjc"}
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"_id":"tf7ZNWmLNqwiDZIG"}
-{"type":"ticket-orders","orders":[],"_id":"x4kCycE6syjWIigV"}
-{"type":"ticket-orders","orders":[],"_id":"ceSzl0hnbXGtvXZc"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB"],"_id":"HXU0RZaqOUIauiTz"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q"],"_id":"HXU0RZaqOUIauiTz"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","tf7ZNWmLNqwiDZIG"],"_id":"HXU0RZaqOUIauiTz"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","tf7ZNWmLNqwiDZIG","YFO4zzIvENHfDWjc"],"_id":"HXU0RZaqOUIauiTz"}
-{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","tf7ZNWmLNqwiDZIG","YFO4zzIvENHfDWjc","YFO4zzIvENHfDWjc"],"_id":"HXU0RZaqOUIauiTz"}
+{"type":"ticket-orders","orders":[],"_id":"4lKOXKOYQ327YY0K"}
+{"type":"ticket-orders","orders":["Eu3Vc0eGyUirIUdS","Eu3Vc0eGyUirIUdS"],"_id":"5yJ5z0uqiJizH5k1"}
+{"type":"ticket-orders","orders":["Eu3Vc0eGyUirIUdS"],"_id":"6jzY0z8vKMET17Ah"}
+{"type":"ticket-orders","orders":[],"_id":"AjYYM61vYlPf8tRF"}
+{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"_id":"Eu3Vc0eGyUirIUdS"}
+{"type":"ticket-orders","orders":[],"_id":"GA5Ww2dENV2dObMe"}
+{"type":"ticket-orders","orders":[],"_id":"H1ijh3e0eT1OPlOG"}
+{"type":"ticket-orders","orders":[],"_id":"Iv6sS3m687j04OYk"}
+{"type":"ticket-orders","orders":[],"_id":"KsjxbCzo1us6KGY7"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":{},"_id":"LQmHYk4kFXS0mtlr"}
+{"type":"ticket-orders","orders":[],"_id":"M9QXLO1AKlExGT6z"}
+{"type":"ticket-orders","orders":[],"_id":"N3kAHzgJSiUOy1ot"}
+{"type":"ticket-orders","orders":[],"_id":"ORS6t7U6YmU1QOT3"}
+{"type":"ticket-orders","orders":[],"_id":"R9gFpI9Xwr5CXxcM"}
+{"type":"ticket-orders","orders":[],"_id":"TwR4VTmRwa8UVAWx"}
+{"type":"ticket-orders","orders":[],"_id":"VkTabP61XlVDCn4T"}
+{"type":"ticket-orders","orders":[],"_id":"Wp2RluLKk5Fk62Ea"}
+{"type":"ticket-orders","orders":[],"_id":"XH2QihRfS3ZSIRK0"}
+{"type":"ticket-orders","orders":[],"_id":"XIgWKuwkKIzJCz0U"}
+{"type":"ticket-orders","orders":[],"_id":"ZK1Qef3smcui41Yv"}
+{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"_id":"am1tU8QIHu2ilsSh"}
+{"type":"ticket-orders","orders":[],"_id":"c0xqkyg4bw22XOD9"}
+{"type":"ticket-orders","orders":[],"_id":"c8DLdZBJ7tGl17hq"}
+{"type":"ticket-orders","orders":[],"_id":"cG0ynyhn0ave1o3R"}
+{"type":"ticket-orders","orders":["Eu3Vc0eGyUirIUdS"],"_id":"cx06Q4jdBTS2U0gV"}
+{"username":"d","password":"$2a$10$qNO/mHceQV3NcYyr7Ns7/u6S2S9eQL78l61vPnkpPiV7OiBxUWdeS","role":"staff","_id":"dvz3bZ02sC1keo3n"}
+{"username":"s","password":"$2a$10$IF6AXcNViGXalhxC68mUMeS57IJ3eTRXHTwOU6KZX1yfnc26qCNvK","role":"staff","_id":"foZZCw8VZE1weBDA"}
+{"type":"ticket-orders","orders":[],"_id":"i6u2pgWedwpTE6zK"}
+{"type":"ticket-orders","orders":[],"_id":"kN38ycoS07yS1gMt"}
+{"type":"ticket-orders","orders":[],"_id":"m9kn0Pw0JmYDT702"}
+{"type":"ticket-orders","orders":[],"_id":"mJ6P4ay0BzObWPsY"}
+{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"_id":"ntRO0VkzbAn5o0UR"}
+{"username":"h","password":"$2a$10$Ei19sfptKyKW9Fl6DxWjJOKO8Jn1R/oto9sKKagw5pj4mmnE0t8RW","role":"staff","_id":"qBepnUbLU47aPavB"}
+{"type":"ticket-orders","orders":[],"_id":"qt2cxas6EXuytyse"}
+{"type":"ticket-orders","orders":[],"_id":"r11nYYXOy0gLnQLr"}
+{"type":"ticket-orders","orders":[],"_id":"r6ld9lntd2YfsRUd"}
+{"type":"ticket-orders","orders":[],"_id":"uMZCZxUoXbHNAv73"}
+{"type":"ticket-orders","orders":[],"_id":"uiEGSMC5SukM0n02"}
+{"type":"ticket-orders","orders":[],"_id":"w9oSi0H9ZRGSlQpM"}
+{"type":"ticket-orders","orders":[],"_id":"yEOEAeJ6gLwiz96C"}
+{"type":"ticket-orders","orders":[],"_id":"ydVa6rUYy7KRppNt"}
+{"type":"ticket-orders","orders":[],"_id":"z4l0aLltOZ2wEPrC"}
+{"type":"ticket-orders","orders":[],"_id":"3VPVxAeIKDfo2SMb"}

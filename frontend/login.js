@@ -28,6 +28,7 @@ async function login(credentials) {
   const data = await res.json();
   console.log(data);
   if (data.success) {
+    console.log(data);
     saveToken(data.token);
     window.location.href = "http://localhost:3000/verifyticket.html";
   }

@@ -99,7 +99,7 @@ app.post("/api/createaccount", async (req, res) => {
   res.json(responseObject);
 });
 
-app.post("/api/login", staff, async (req, res) => {
+app.post("/api/login", async (req, res) => {
   const credentials = req.body;
 
   const responseObject = {
@@ -120,6 +120,7 @@ app.post("/api/login", staff, async (req, res) => {
       const token = jwt.sign({ username: account[0].username }, "a1b2c3", {
         expiresIn: 60,
       });
+
       responseObject.token = token;
     }
   }
@@ -161,6 +162,16 @@ app.get("/api/getnr", (req, res) => {
   console.log(number);
 
   res.json(number);
+});
+
+app.post("/api/verify", (req, res) => {
+  const ticket = req.body;
+  const responseObject = {
+    success: true,
+  };
+  console.log("----VERIFY----");
+  console.log(ticket);
+  res.json(responseObject);
 });
 
 app.listen(3000, () => {
