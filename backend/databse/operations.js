@@ -12,6 +12,7 @@ const eventList = {
       to: "21:00",
       date: "21 mars",
       price: 350,
+      numberofTickets: 1,
     },
     {
       type: "event",
@@ -21,6 +22,8 @@ const eventList = {
       to: "00:00",
       date: "29 mars",
       price: 110,
+      numberofTickets: 1,
+      tickets: {},
     },
     {
       type: "event",
@@ -30,6 +33,7 @@ const eventList = {
       to: "16:00",
       date: "10 april",
       price: 99,
+      numberofTickets: 1,
     },
     {
       type: "event",
@@ -39,31 +43,45 @@ const eventList = {
       to: "du tröttnar",
       date: "17 april",
       price: 150,
+      numberofTickets: 0,
     },
   ],
 };
 
-// event operations
-
+// ***event operations***
 function saveEvents() {
-  database.insert(eventList.events);
+  const db = await database.find({});
+  if (db == 0) database.insert(eventList.events);
 }
 
 async function getEvents() {
   const eventItems = await database.find({ type: "event" });
-  console.log(eventItems);
+  // console.log(eventItems);
   return eventItems;
 }
 
 async function getInfoById(idnr) {
   const eventItems = await database.find({ _id: idnr });
-  console.log(eventItems);
+  // console.log(eventItems);
   return eventItems;
 }
 
 async function getInfoByTitle(title) {
   const event = await database.find({ title: title });
   return event;
+}
+
+async function addTicketsToDatabase(title, ticketNr) {
+  const event = await database.find({ title: title });
+  console.log(event);
+  console.log(title);
+  console.log(ticketNr);
+
+  let a = await database.update(
+    { title: title },
+    { $push: { ticket: ticketNr } }
+  );
+  console.log(a);
 }
 
 // account operations
@@ -83,4 +101,5 @@ module.exports = {
   getInfoById,
   saveAccount,
   getAccountByUsername,
+  addTicketsToDatabase,
 };
