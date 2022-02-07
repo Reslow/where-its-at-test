@@ -4,7 +4,7 @@ const where = document.getElementById("whereElement");
 const when = document.getElementById("whenElement");
 const from = document.getElementById("fromElement");
 const to = document.getElementById("toElement");
-const ticketId = document.getElementById("ticketId");
+const ticket = document.getElementById("ticketId");
 
 function setContentToElements(info) {
   what.innerText = info[0].title;
@@ -12,7 +12,6 @@ function setContentToElements(info) {
   when.innerText = info[0].date;
   from.innerText = info[0].from;
   to.innerText = info[0].to;
-  ticketId.innerText = info[0]._id;
 }
 // ticket Id sent through url. This we can check with database to get the right object with content.
 
@@ -32,6 +31,7 @@ async function getEventInfo(ticketId) {
   let data = await res.json();
   console.log(data.ticket);
   setContentToElements(data.ticket);
+  ticket.innerText = data.ordernr;
 }
 
 getTicketIdFromUrl();

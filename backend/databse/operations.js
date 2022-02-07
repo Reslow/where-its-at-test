@@ -12,7 +12,7 @@ const eventList = {
       to: "21:00",
       date: "21 mars",
       price: 350,
-      numberofTickets: 1,
+      numberofTickets: 2,
     },
     {
       type: "event",
@@ -22,7 +22,7 @@ const eventList = {
       to: "00:00",
       date: "29 mars",
       price: 110,
-      numberofTickets: 1,
+      numberofTickets: 3,
       tickets: {},
     },
     {
@@ -43,7 +43,7 @@ const eventList = {
       to: "du tröttnar",
       date: "17 april",
       price: 150,
-      numberofTickets: 0,
+      numberofTickets: 3,
     },
   ],
 };
@@ -56,13 +56,12 @@ async function saveEvents() {
 
 async function getEvents() {
   const eventItems = await database.find({ type: "event" });
-  // console.log(eventItems);
   return eventItems;
 }
 
 async function getInfoById(idnr) {
   const eventItems = await database.find({ _id: idnr });
-  console.log(eventItems);
+  // console.log(eventItems);
   return eventItems;
 }
 
@@ -72,17 +71,12 @@ async function getInfoByTitle(title) {
   return event;
 }
 
-async function addTicketsToDatabase(title, ticketNr) {
-  const event = await database.find({ title: title });
-  console.log(event);
-  console.log(title);
-  console.log(ticketNr);
+function createOrderCon() {
+  database.insert({ type: "ticket-orders", orders: [] });
+}
 
-  let a = await database.update(
-    { title: title },
-    { $push: { ticket: ticketNr } }
-  );
-  console.log(a);
+async function saveTicketOrder(order) {
+  database.update({ type: "ticket-orders" }, { $push: { orders: order } });
 }
 
 // account operations
@@ -102,5 +96,6 @@ module.exports = {
   getInfoById,
   saveAccount,
   getAccountByUsername,
-  addTicketsToDatabase,
+  createOrderCon,
+  saveTicketOrder,
 };

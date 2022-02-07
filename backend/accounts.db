@@ -1,4 +1,15 @@
-{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":1,"_id":"sLMwfDoXKSd2YXjk"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":1,"tickets":{},"_id":"hGrQRySauR7RmHNO"}
-{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"_id":"tOPBBJVnapGIjubq"}
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":0,"_id":"duh25ZzxJuLgowpa"}
+{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"_id":"F6fba3E3Cit0TmcB"}
+{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"_id":"H0Ev8hGVew6oEC9q"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q"],"_id":"HXU0RZaqOUIauiTz"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB"],"_id":"LCThGrNJf3OBe1ns"}
+{"type":"ticket-orders","orders":[],"_id":"V1o4HZO5q8zpygTQ"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","F6fba3E3Cit0TmcB"],"_id":"XJ49Oa4Ey0vudgzx"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":{},"_id":"YFO4zzIvENHfDWjc"}
+{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"_id":"tf7ZNWmLNqwiDZIG"}
+{"type":"ticket-orders","orders":[],"_id":"x4kCycE6syjWIigV"}
+{"type":"ticket-orders","orders":[],"_id":"ceSzl0hnbXGtvXZc"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB"],"_id":"HXU0RZaqOUIauiTz"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q"],"_id":"HXU0RZaqOUIauiTz"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","tf7ZNWmLNqwiDZIG"],"_id":"HXU0RZaqOUIauiTz"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","tf7ZNWmLNqwiDZIG","YFO4zzIvENHfDWjc"],"_id":"HXU0RZaqOUIauiTz"}
+{"type":"ticket-orders","orders":["F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","H0Ev8hGVew6oEC9q","F6fba3E3Cit0TmcB","H0Ev8hGVew6oEC9q","tf7ZNWmLNqwiDZIG","YFO4zzIvENHfDWjc","YFO4zzIvENHfDWjc"],"_id":"HXU0RZaqOUIauiTz"}

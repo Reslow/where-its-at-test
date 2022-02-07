@@ -12,14 +12,31 @@ const {
   getInfoById,
   getAccountByUsername,
   saveAccount,
+  createOrderCon,
+  saveTicketOrder,
 } = require("./databse/operations");
 
 // saving eventList, maybe should change thid so only save if we have not saved before
 saveEvents();
+createOrderCon();
 
 // linking to bcrypt
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
 const { staff } = require("./middleware/auth");
+
+// generateOrderNrForTicket
+
+genereateOrderNr();
+
+// Generateing a number of letters and numbers
+function genereateOrderNr() {
+  const letters = ["Z", "Y", "A"];
+  const randomLetters = letters[Math.floor(Math.random() * letters.length)];
+  const randomNr = Math.floor(Math.random() * 10000);
+  console.log(randomLetters);
+  console.log(randomNr);
+  return `WIA${randomNr}${randomLetters}`;
+}
 
 //  looking for events thats is saved
 app.get("/api/eventlist", async (req, res) => {
@@ -37,16 +54,18 @@ app.get("/api/eventlist", async (req, res) => {
 app.get("/api/getticket", async (req, res) => {
   console.log("API/getTicket");
   let ticketId = req.query.id;
-  console.log(ticketId);
 
   const responseObject = {
     success: true,
     ticket: "",
+    ordernr: "",
   };
+  saveTicketOrder(ticketId);
   let ticket = await getInfoById(ticketId);
   console.log(ticket);
   responseObject.ticket = ticket;
 
+  responseObject.ordernr = genereateOrderNr();
   res.json(responseObject);
 });
 
