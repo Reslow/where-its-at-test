@@ -12,22 +12,16 @@ const {
   getInfoById,
   getAccountByUsername,
   saveAccount,
-  createOrderCon,
   saveTicketOrder,
-  checkdatabaseforTicket,
+  verifyticketNr,
 } = require("./databse/operations");
 
 // saving eventList, maybe should change thid so only save if we have not saved before
 saveEvents();
-createOrderCon();
 
 // linking to bcrypt
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
 const { staff } = require("./middleware/auth");
-
-// generateOrderNrForTicket
-
-genereateOrderNr();
 
 // Generateing a number of letters and numbers
 function genereateOrderNr() {
@@ -61,6 +55,8 @@ app.get("/api/getticket", async (req, res) => {
     ticket: "",
     ordernr: "",
   };
+
+  console.log(`ticketid ${ticketId}`);
   let ticket = await getInfoById(ticketId);
 
   responseObject.ticket = ticket;
@@ -68,7 +64,7 @@ app.get("/api/getticket", async (req, res) => {
 
   responseObject.ordernr = ordernr;
   console.log(responseObject.ordernr);
-  saveTicketOrder(ordernr);
+  saveTicketOrder(ordernr, ticketId);
   res.json(responseObject);
 });
 
@@ -166,18 +162,10 @@ app.post("/api/verify", async (req, res) => {
     success: false,
     ticket: "",
   };
-  let verifiedTicket = await checkdatabaseforTicket(ticket);
+
+  verifyticketNr(ticket);
 
   console.log("----VERIFY----");
-  //  try catch ?
-
-  if (verifiedTicket && verifiedTicket.orders[0].length > 0) {
-    console.log(verifiedTicket.orders);
-    responseObject.success = true;
-    responseObject.ticket = verifiedTicket;
-  } else {
-    console.log("nothing to get");
-  }
 
   res.json(responseObject);
 });

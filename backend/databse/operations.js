@@ -13,6 +13,7 @@ const eventList = {
       date: "21 mars",
       price: 350,
       numberofTickets: 2,
+      tickets: [{}],
     },
     {
       type: "event",
@@ -23,7 +24,7 @@ const eventList = {
       date: "29 mars",
       price: 110,
       numberofTickets: 3,
-      tickets: {},
+      tickets: [{}],
     },
     {
       type: "event",
@@ -34,6 +35,7 @@ const eventList = {
       date: "10 april",
       price: 99,
       numberofTickets: 1,
+      tickets: [{}],
     },
     {
       type: "event",
@@ -44,6 +46,7 @@ const eventList = {
       date: "17 april",
       price: 150,
       numberofTickets: 3,
+      tickets: [{}],
     },
   ],
 };
@@ -61,7 +64,7 @@ async function getEvents() {
 
 async function getInfoById(idnr) {
   const eventItems = await database.find({ _id: idnr });
-  // console.log(eventItems);
+
   return eventItems;
 }
 
@@ -71,13 +74,39 @@ async function getInfoByTitle(title) {
   return event;
 }
 
-function createOrderCon() {
-  database.insert({ type: "ticket-orders", orders: [] });
+async function saveTicketOrder(ticket, eventid) {
+  console.log(ticket);
+  let event = await getInfoById(eventid);
+  let tickets = event[0].tickets.length;
+  let numbers = event[0].numberofTickets;
+
+  if (tickets < numbers) {
+    console.log(eventid);
+    let a = await database.update(
+      { _id: eventid },
+      { $push: { tickets: { ticketid: ticket, verify: false } } }
+    );
+    console.log(event[0].tickets);
+    console.log(a);
+  } else {
+    console.log("no more tickets!");
+  }
 }
 
-async function saveTicketOrder(order) {
-  console.log(order);
-  database.update({ type: "ticket-orders" }, { $push: { orders: order } });
+async function verifyticketNr(ticket) {
+  const num = ticket.ticket;
+  console.log(ticket);
+  const tickArr = await database.find({ "tickets.ticketid": num });
+  console.log("--TICKET--");
+  console.log(tickArr);
+
+  let a = await database.update(
+    { "tickets.ticketid": num },
+    { $set: { tickets: { ticketid: num, verify: true } } }
+  );
+  console.log(a);
+
+  console.log("oooooO");
 }
 
 // account operations
@@ -89,16 +118,6 @@ async function getAccountByUsername(username) {
   const account = await database.find({ username: username });
   return account;
 }
-async function checkdatabaseforTicket(ticket) {
-  console.log("CHECKING");
-  let nr = ticket.ticket;
-  console.log(`${nr}`);
-  const ticketss = await database.find({ orders: nr });
-  console.log(ticketss);
-  let rightT = ticketss.find((item) => item.orders == nr);
-  console.log(`rightT ${rightT}`);
-  return rightT;
-}
 
 module.exports = {
   saveEvents,
@@ -107,7 +126,6 @@ module.exports = {
   getInfoById,
   saveAccount,
   getAccountByUsername,
-  createOrderCon,
   saveTicketOrder,
-  checkdatabaseforTicket,
+  verifyticketNr,
 };
