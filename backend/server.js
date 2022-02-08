@@ -159,15 +159,18 @@ app.post("/api/verify", async (req, res) => {
   const ticket = req.body;
   console.log(ticket);
   const responseObject = {
-    success: false,
-    ticket: ticket,
+    ticket: "",
     ticketIsVAlid: "",
+    ticketAlreadyVerified: "",
   };
 
   const answer = await verifyticketNr(ticket);
   console.log("ANSER");
+  console.log(answer);
 
-  responseObject.ticketIsVAlid = answer[0].tickets[0].verify;
+  responseObject.ticketIsVAlid = answer.verifiednow;
+  responseObject.ticketAlreadyVerified = answer.aldredyVerified;
+  responseObject.ticket = answer.ticketnr;
 
   res.json(responseObject);
 });

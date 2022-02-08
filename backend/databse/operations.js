@@ -99,17 +99,26 @@ async function verifyticketNr(ticket) {
   const num = ticket.ticket;
   const tickArr = await database.find({ "tickets.ticketid": num });
   console.log(`arr ${JSON.stringify(tickArr[0])}`);
-  // console.log(tickArr[0].tickets.verify);
 
-  if (tickArr[0].tickets.verify === false) {
+  const responsObject = {
+    aldredyVerified: false,
+    verifiednow: false,
+    ticketnr: num,
+  };
+  console.log(tickArr[0].tickets[0]);
+  let arr = tickArr[0].tickets[0];
+
+  if (arr && arr == false) {
     await database.update(
       { "tickets.ticketid": num },
       { $set: { tickets: { ticketid: num, verify: true } } }
     );
-  } else if (tickArr[0].tickets.verify === true) {
+    responsObject.verifiednow = true;
+  } else {
     console.log("ticket has been verified");
+    responsObject.aldredyVerified = true;
   }
-  return tickArr;
+  return responsObject;
 }
 
 // account operations
