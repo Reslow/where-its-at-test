@@ -13,7 +13,7 @@ const eventList = {
       date: "21 mars",
       price: 350,
       numberofTickets: 2,
-      tickets: [{}],
+      tickets: [],
     },
     {
       type: "event",
@@ -24,7 +24,7 @@ const eventList = {
       date: "29 mars",
       price: 110,
       numberofTickets: 3,
-      tickets: [{}],
+      tickets: [],
     },
     {
       type: "event",
@@ -35,7 +35,7 @@ const eventList = {
       date: "10 april",
       price: 99,
       numberofTickets: 1,
-      tickets: [{}],
+      tickets: [],
     },
     {
       type: "event",
@@ -46,7 +46,7 @@ const eventList = {
       date: "17 april",
       price: 150,
       numberofTickets: 3,
-      tickets: [{}],
+      tickets: [],
     },
   ],
 };
@@ -93,20 +93,23 @@ async function saveTicketOrder(ticket, eventid) {
   }
 }
 
+// kolla om det finsn en biljett med biljettnummret, om det finns och ver = true så är den redan kollad och ogiltig,
+
 async function verifyticketNr(ticket) {
   const num = ticket.ticket;
-  console.log(ticket);
   const tickArr = await database.find({ "tickets.ticketid": num });
-  console.log("--TICKET--");
-  console.log(tickArr);
+  console.log(`arr ${JSON.stringify(tickArr[0])}`);
+  // console.log(tickArr[0].tickets.verify);
 
-  let a = await database.update(
-    { "tickets.ticketid": num },
-    { $set: { tickets: { ticketid: num, verify: true } } }
-  );
-  console.log(a);
-
-  console.log("oooooO");
+  if (tickArr[0].tickets.verify === false) {
+    await database.update(
+      { "tickets.ticketid": num },
+      { $set: { tickets: { ticketid: num, verify: true } } }
+    );
+  } else if (tickArr[0].tickets.verify === true) {
+    console.log("ticket has been verified");
+  }
+  return tickArr;
 }
 
 // account operations

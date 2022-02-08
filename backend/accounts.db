@@ -1,7 +1,6 @@
-{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"tickets":[{}],"_id":"6OxJwvwckV5tRnJh"}
-{"username":"d","password":"$2a$10$ys52Mbx1iWkDnvShf5ABAeuqEcCNsm3mCm99/DF4BZO35T8lyZl1W","role":"staff","_id":"DQUAMKhLCf5QEXeY"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{}],"_id":"fPYiOmJIU9Mslkb3"}
-{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"tickets":{"ticketid":"WIA68Z","verify":true},"_id":"fam3KYrgo2ZaEPjS"}
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":[{}],"_id":"hE2KwH8mpPpV6PuD"}
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":[{},{"ticketid":"WIA3776Y","verify":false}],"_id":"hE2KwH8mpPpV6PuD"}
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":{"ticketid":"WIA3776Y","verify":true},"_id":"hE2KwH8mpPpV6PuD"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{"ticketid":"WIA24A","verify":false}],"_id":"7knQUxBkqAyWyS99"}
+{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"tickets":[],"_id":"BzMKxdL1OsJrb9Zw"}
+{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"tickets":[],"_id":"HWrDlZdrvYUkOXPi"}
+{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":[{"ticketid":"WIA9246A","verify":false}],"_id":"eJfAz1tBW66tk1yd"}
+{"username":"e","password":"$2a$10$lSzAvSv6UkaMiEWPYuOqz.zd5JdXYjCiUYKBHpRgMWS7HoNjxWVnq","role":"staff","_id":"eiEyxA1qKsgxeEFA"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{"ticketid":"WIA24A","verify":false},{"ticketid":"WIA9549Z","verify":false}],"_id":"7knQUxBkqAyWyS99"}
