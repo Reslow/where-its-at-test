@@ -76,6 +76,7 @@ function createOrderCon() {
 }
 
 async function saveTicketOrder(order) {
+  console.log(order);
   database.update({ type: "ticket-orders" }, { $push: { orders: order } });
 }
 
@@ -88,6 +89,16 @@ async function getAccountByUsername(username) {
   const account = await database.find({ username: username });
   return account;
 }
+async function checkdatabaseforTicket(ticket) {
+  console.log("CHECKING");
+  let nr = ticket.ticket;
+  console.log(`${nr}`);
+  const ticketss = await database.find({ orders: nr });
+  console.log(ticketss);
+  let rightT = ticketss.find((item) => item.orders == nr);
+  console.log(`rightT ${rightT}`);
+  return rightT;
+}
 
 module.exports = {
   saveEvents,
@@ -98,4 +109,5 @@ module.exports = {
   getAccountByUsername,
   createOrderCon,
   saveTicketOrder,
+  checkdatabaseforTicket,
 };

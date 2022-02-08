@@ -1,43 +1,52 @@
-{"type":"ticket-orders","orders":[],"_id":"4lKOXKOYQ327YY0K"}
-{"type":"ticket-orders","orders":["Eu3Vc0eGyUirIUdS","Eu3Vc0eGyUirIUdS"],"_id":"5yJ5z0uqiJizH5k1"}
-{"type":"ticket-orders","orders":["Eu3Vc0eGyUirIUdS"],"_id":"6jzY0z8vKMET17Ah"}
-{"type":"ticket-orders","orders":[],"_id":"AjYYM61vYlPf8tRF"}
-{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"_id":"Eu3Vc0eGyUirIUdS"}
-{"type":"ticket-orders","orders":[],"_id":"GA5Ww2dENV2dObMe"}
-{"type":"ticket-orders","orders":[],"_id":"H1ijh3e0eT1OPlOG"}
-{"type":"ticket-orders","orders":[],"_id":"Iv6sS3m687j04OYk"}
-{"type":"ticket-orders","orders":[],"_id":"KsjxbCzo1us6KGY7"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":{},"_id":"LQmHYk4kFXS0mtlr"}
-{"type":"ticket-orders","orders":[],"_id":"M9QXLO1AKlExGT6z"}
-{"type":"ticket-orders","orders":[],"_id":"N3kAHzgJSiUOy1ot"}
-{"type":"ticket-orders","orders":[],"_id":"ORS6t7U6YmU1QOT3"}
-{"type":"ticket-orders","orders":[],"_id":"R9gFpI9Xwr5CXxcM"}
-{"type":"ticket-orders","orders":[],"_id":"TwR4VTmRwa8UVAWx"}
-{"type":"ticket-orders","orders":[],"_id":"VkTabP61XlVDCn4T"}
-{"type":"ticket-orders","orders":[],"_id":"Wp2RluLKk5Fk62Ea"}
-{"type":"ticket-orders","orders":[],"_id":"XH2QihRfS3ZSIRK0"}
-{"type":"ticket-orders","orders":[],"_id":"XIgWKuwkKIzJCz0U"}
-{"type":"ticket-orders","orders":[],"_id":"ZK1Qef3smcui41Yv"}
-{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"_id":"am1tU8QIHu2ilsSh"}
-{"type":"ticket-orders","orders":[],"_id":"c0xqkyg4bw22XOD9"}
-{"type":"ticket-orders","orders":[],"_id":"c8DLdZBJ7tGl17hq"}
-{"type":"ticket-orders","orders":[],"_id":"cG0ynyhn0ave1o3R"}
-{"type":"ticket-orders","orders":["Eu3Vc0eGyUirIUdS"],"_id":"cx06Q4jdBTS2U0gV"}
-{"username":"d","password":"$2a$10$qNO/mHceQV3NcYyr7Ns7/u6S2S9eQL78l61vPnkpPiV7OiBxUWdeS","role":"staff","_id":"dvz3bZ02sC1keo3n"}
-{"username":"s","password":"$2a$10$IF6AXcNViGXalhxC68mUMeS57IJ3eTRXHTwOU6KZX1yfnc26qCNvK","role":"staff","_id":"foZZCw8VZE1weBDA"}
-{"type":"ticket-orders","orders":[],"_id":"i6u2pgWedwpTE6zK"}
-{"type":"ticket-orders","orders":[],"_id":"kN38ycoS07yS1gMt"}
-{"type":"ticket-orders","orders":[],"_id":"m9kn0Pw0JmYDT702"}
-{"type":"ticket-orders","orders":[],"_id":"mJ6P4ay0BzObWPsY"}
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"_id":"ntRO0VkzbAn5o0UR"}
-{"username":"h","password":"$2a$10$Ei19sfptKyKW9Fl6DxWjJOKO8Jn1R/oto9sKKagw5pj4mmnE0t8RW","role":"staff","_id":"qBepnUbLU47aPavB"}
-{"type":"ticket-orders","orders":[],"_id":"qt2cxas6EXuytyse"}
-{"type":"ticket-orders","orders":[],"_id":"r11nYYXOy0gLnQLr"}
-{"type":"ticket-orders","orders":[],"_id":"r6ld9lntd2YfsRUd"}
-{"type":"ticket-orders","orders":[],"_id":"uMZCZxUoXbHNAv73"}
-{"type":"ticket-orders","orders":[],"_id":"uiEGSMC5SukM0n02"}
-{"type":"ticket-orders","orders":[],"_id":"w9oSi0H9ZRGSlQpM"}
-{"type":"ticket-orders","orders":[],"_id":"yEOEAeJ6gLwiz96C"}
-{"type":"ticket-orders","orders":[],"_id":"ydVa6rUYy7KRppNt"}
-{"type":"ticket-orders","orders":[],"_id":"z4l0aLltOZ2wEPrC"}
-{"type":"ticket-orders","orders":[],"_id":"3VPVxAeIKDfo2SMb"}
+{"type":"ticket-orders","orders":[],"_id":"2aMwDRiPbeqpky4h"}
+{"type":"ticket-orders","orders":[],"_id":"3lmVmVVoacmuzX8q"}
+{"type":"ticket-orders","orders":[],"_id":"48nefRcEL5UbWH39"}
+{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"_id":"4R3FmV3RJfRTU6iW"}
+{"type":"ticket-orders","orders":["WIA8110Z","WIA6369A","WIA3993Z","WIA964Z"],"_id":"BZa1w4gvM5vB3Re0"}
+{"type":"ticket-orders","orders":[],"_id":"Fnj7GPAfqwmuK52v"}
+{"type":"ticket-orders","orders":[],"_id":"GIhTLnOnB7yoEj5k"}
+{"type":"ticket-orders","orders":[],"_id":"GU1etr9Ujul70FWg"}
+{"type":"ticket-orders","orders":[],"_id":"GhdOJoYIiX6UAPZK"}
+{"type":"ticket-orders","orders":[],"_id":"Hm6EtIgMBJ0d1Wov"}
+{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"_id":"I8PYa5fkpa5niNT0"}
+{"type":"ticket-orders","orders":[],"_id":"IG39ymlKa7VYRRYR"}
+{"type":"ticket-orders","orders":[],"_id":"IJ5kVhQQzwrsx8BB"}
+{"type":"ticket-orders","orders":[],"_id":"JLQR8V1gB85oP53J"}
+{"type":"ticket-orders","orders":[],"_id":"Jl1doiMyyMob3pOf"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":{},"_id":"L1YOkspGLOhTzQcX"}
+{"type":"ticket-orders","orders":[],"_id":"O9eoJbhkMi9ePmkL"}
+{"type":"ticket-orders","orders":[],"_id":"PaQ33lurFGQFeGuV"}
+{"type":"ticket-orders","orders":[],"_id":"PeQxxDXTJvpPjPMQ"}
+{"type":"ticket-orders","orders":[],"_id":"R4dcFTkJ3AqU1LfM"}
+{"username":"d","password":"$2a$10$7MQznFlKvX.d67v6IXhAB.a6O8pMP4E2EP1uJf.2Zu/Mb2CifL262","role":"staff","_id":"RkmX33hREVZfS0jE"}
+{"type":"ticket-orders","orders":[],"_id":"VAPMbkIlsyaTkiI1"}
+{"type":"ticket-orders","orders":[],"_id":"YeYew0koqLcgotWG"}
+{"type":"ticket-orders","orders":[],"_id":"bBBuIA8dOiIRp4AY"}
+{"type":"ticket-orders","orders":[],"_id":"bljOdBuawKC6iWpj"}
+{"type":"ticket-orders","orders":[],"_id":"cDU90ZOusHM5ctC6"}
+{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"_id":"cP4thRoVmcPL3VmS"}
+{"type":"ticket-orders","orders":[],"_id":"d4t7IaXPNUKX56bm"}
+{"type":"ticket-orders","orders":[],"_id":"dkoCega2incYzXVW"}
+{"type":"ticket-orders","orders":[],"_id":"dlTrPVPAorHZN2ct"}
+{"type":"ticket-orders","orders":[],"_id":"eU4KZtnmtTMJxp4m"}
+{"type":"ticket-orders","orders":[],"_id":"fFJbdzSr4wfCKotl"}
+{"type":"ticket-orders","orders":[],"_id":"fVmpxNHaxAcvnf8K"}
+{"type":"ticket-orders","orders":[],"_id":"fcUAWygNES88gVGL"}
+{"type":"ticket-orders","orders":[],"_id":"gVGI5omLb55Nftmw"}
+{"type":"ticket-orders","orders":[],"_id":"l1kbmuDfj8TDRwP2"}
+{"type":"ticket-orders","orders":[],"_id":"mNwClofRJSQeLzlu"}
+{"type":"ticket-orders","orders":[],"_id":"mciZLIJ9tGX0VhFT"}
+{"type":"ticket-orders","orders":[],"_id":"nsHPD5DJT83UTDPL"}
+{"type":"ticket-orders","orders":[],"_id":"oKDeM8sqftGwyepq"}
+{"type":"ticket-orders","orders":[],"_id":"oP6mPzs8bpkLNioM"}
+{"type":"ticket-orders","orders":["WIA9923Y"],"_id":"ojzaKDCDE98HrDIM"}
+{"type":"ticket-orders","orders":[],"_id":"pXsdwtVgeJ9xjDzQ"}
+{"type":"ticket-orders","orders":[],"_id":"pXyjvzqew2NnYbAQ"}
+{"type":"ticket-orders","orders":[],"_id":"q6iBMhmXU6SHY9jc"}
+{"type":"ticket-orders","orders":[],"_id":"r8Oce91R8DPf3UqZ"}
+{"type":"ticket-orders","orders":[],"_id":"rrXJcmdPjFT5jMa4"}
+{"type":"ticket-orders","orders":[],"_id":"tqhkbIEl1sET6O8n"}
+{"type":"ticket-orders","orders":[],"_id":"wv6lXZrlFBJm1sOU"}
+{"type":"ticket-orders","orders":[],"_id":"xCmgIUys66eKQsP4"}
+{"type":"ticket-orders","orders":[],"_id":"zoUPTzzKeE164wlf"}
+{"type":"ticket-orders","orders":[],"_id":"Mnzj9hWsDONT7sBN"}

@@ -14,6 +14,7 @@ const {
   saveAccount,
   createOrderCon,
   saveTicketOrder,
+  checkdatabaseforTicket,
 } = require("./databse/operations");
 
 // saving eventList, maybe should change thid so only save if we have not saved before
@@ -60,12 +61,14 @@ app.get("/api/getticket", async (req, res) => {
     ticket: "",
     ordernr: "",
   };
-  saveTicketOrder(ticketId);
   let ticket = await getInfoById(ticketId);
-  console.log(ticket);
-  responseObject.ticket = ticket;
 
-  responseObject.ordernr = genereateOrderNr();
+  responseObject.ticket = ticket;
+  const ordernr = genereateOrderNr();
+
+  responseObject.ordernr = ordernr;
+  console.log(responseObject.ordernr);
+  saveTicketOrder(ordernr);
   res.json(responseObject);
 });
 
@@ -77,15 +80,14 @@ app.post("/api/createaccount", async (req, res) => {
     success: true,
     usernameExist: false,
   };
-  // console.log(credentials.username);
+
   const usernameExist = await getAccountByUsername(credentials.username);
-  // if arr returning empty  user exist
+
   if (usernameExist.length > 0) {
     responseObject.success = false;
     responseObject.usernameExist = true;
   }
 
-  //  här sätter jag en user till user:roll för att testning av roller
   if (responseObject.usernameExist == false) {
     if (credentials.username == "user") {
       credentials.role = "user";
@@ -157,20 +159,26 @@ app.get("/api/logout", (req, res) => {
   res.json(responseObject);
 });
 
-app.get("/api/getnr", (req, res) => {
-  const number = req.body;
-  console.log(number);
-
-  res.json(number);
-});
-
-app.post("/api/verify", (req, res) => {
+app.post("/api/verify", async (req, res) => {
   const ticket = req.body;
-  const responseObject = {
-    success: true,
-  };
-  console.log("----VERIFY----");
   console.log(ticket);
+  const responseObject = {
+    success: false,
+    ticket: "",
+  };
+  let verifiedTicket = await checkdatabaseforTicket(ticket);
+
+  console.log("----VERIFY----");
+  //  try catch ?
+
+  if (verifiedTicket && verifiedTicket.orders[0].length > 0) {
+    console.log(verifiedTicket.orders);
+    responseObject.success = true;
+    responseObject.ticket = verifiedTicket;
+  } else {
+    console.log("nothing to get");
+  }
+
   res.json(responseObject);
 });
 

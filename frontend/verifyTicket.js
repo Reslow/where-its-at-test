@@ -45,7 +45,7 @@ async function verifyticketNr(ticket) {
     },
   });
   const data = await res.json();
-
+  console.log(data.ticket);
   console.log(data);
 }
 
