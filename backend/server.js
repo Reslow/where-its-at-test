@@ -168,14 +168,12 @@ app.post("/api/verify", staff, async (req, res) => {
     ticketIsVAlid: "",
     ticketAlreadyVerified: "",
     loggedIn: false,
+    nothingToVerify: false,
   };
 
   try {
     const data = jwt.verify(token, "a1b2c3");
     console.log(`data ${JSON.stringify(data)}`);
-
-    // username
-    console.log(data.username);
 
     if (data) {
       responseObject.loggedIn = true;
@@ -185,9 +183,7 @@ app.post("/api/verify", staff, async (req, res) => {
   }
 
   const answer = await verifyticketNr(ticket);
-  console.log("ANSWER");
-  console.log(answer);
-
+  responseObject.nothingToVerify = answer.nothingToVerify;
   responseObject.ticketIsVAlid = answer.verifiednow;
   responseObject.ticketAlreadyVerified = answer.aldredyVerified;
   responseObject.ticket = answer.ticketnr;

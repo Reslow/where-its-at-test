@@ -1,6 +1,8 @@
-{"username":"u","password":"$2a$10$DrzcnvqmT9jrhBaxYoTMP.Wb/fxIIsQCfSC2z/GpegiIFVW7kQKEG","role":"staff","_id":"6MqiIdo4ihDLXzxr"}
-{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"tickets":[],"_id":"ImCLb9dF4sKko7MV"}
-{"username":"user","password":"$2a$10$8MeMlk7wYVBj3JJTdEWS9er7Ni.fQ1IULCWediLUMOHmBqJ3TsePO","role":"user","_id":"LyYkFuIHqITY99gh"}
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":[],"_id":"OdThjgEn1LENQqKn"}
-{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"tickets":[],"_id":"cmQ3XYGyM7EJwcMi"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[],"_id":"u2A5lnsNJDka13mO"}
+{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":[{"ticketid":"WIA6597Z","verify":true},{"ticketid":"WIA7378Y","verify":false}],"_id":"6FxlXKOFhO51kgqz"}
+{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"tickets":[{"ticketid":"WIA2718Y","verify":false}],"_id":"9YVIx2JwDg1vV8g7"}
+{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"tickets":[{"ticketid":"WIA6082Z","verify":false}],"_id":"J54Zi1vpHEAys8pj"}
+{"username":"user","password":"$2a$10$gBTGmJHTOqdUZa6lrze5KeoUTsms8IA8rXJDUB5RkycV1/tRFPOz6","role":"user","_id":"bXaFbjgVqGsU2lzw"}
+{"username":"a","password":"$2a$10$YWdyS.3BaxJkCSwmhSc8/epAWKg/Bmu/vQgPTnk6QA.P3pkeqS4K2","role":"staff","_id":"eno1aV8DLnkTFxyL"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[],"_id":"gzuR5oh7Jehe99At"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{"ticketid":"WIA5724A","verify":false}],"_id":"gzuR5oh7Jehe99At"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{"ticketid":"WIA5724A","verify":true}],"_id":"gzuR5oh7Jehe99At"}

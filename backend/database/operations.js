@@ -120,15 +120,17 @@ async function verifyticketNr(ticket) {
     aldredyVerified: false,
     verifiednow: false,
     ticketnr: ticketnr,
+    nothingToVerify: false,
   };
-  console.log(tickArr[0].tickets[0]);
+
   // if verfied is true or false
-  let verified = tickArr[0].tickets[0];
-  console.log("CHECK STATION");
-  console.log(verified);
+  let verified = tickArr[0];
+  // .tickets[0];
+  // console.log("CHECK STATION");
+  // console.log(verified);
 
   if (verified) {
-    if (verified.verify == false) {
+    if (verified.tickets[0].verify == false) {
       // if false then update to true (true = verified)
       await database.update(
         { "tickets.ticketid": ticketnr },
@@ -140,8 +142,9 @@ async function verifyticketNr(ticket) {
       console.log("ticket has been verified");
       responsObject.aldredyVerified = true;
     }
-  } else {
+  } else if (verified.tickets[0].length === 0) {
     console.log("no verified item");
+    responsObject.nothingToVerify = true;
   }
   return responsObject;
 }
