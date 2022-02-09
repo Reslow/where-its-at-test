@@ -1,9 +1,20 @@
 const { getAccountByUsername } = require("../database/operations");
+const jwt = require("jsonwebtoken");
 
 async function staff(req, res, next) {
-  const user = req.body;
-  // console.log(user.username);
-  const account = getAccountByUsername(user.username);
+  const token = req.headers.authorization.replace("Bearer ", "");
+  // console.log(`token ${token}`);
+  //  hämta namn genom token  och seda hämta role
+  let account;
+  try {
+    const data = jwt.verify(token, "a1b2c3");
+    console.log(data);
+    account = await getAccountByUsername(data.username);
+    console.log(account);
+  } catch (error) {
+    console.log(error);
+  }
+
   try {
     if (account.length == 0) {
       throw new Error();
@@ -11,11 +22,9 @@ async function staff(req, res, next) {
       next();
     }
   } catch (error) {
-    const responseObject = {
-      success: false,
-      errorMessage: "unauthorized",
-    };
-    res.json(responseObject);
+    console.log(error);
+    console.log("unauthorized!");
+    return error;
   }
 }
 

@@ -36,12 +36,14 @@ async function logOut() {
 async function verifyticketNr(ticket) {
   console.log(ticket);
   console.log(typeof ticket);
+  const token = sessionStorage.getItem("token");
 
   const res = await fetch("http://localhost:3000/api/verify", {
     method: "POST",
     body: JSON.stringify({ ticket }),
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   });
   const data = await res.json();

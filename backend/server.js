@@ -45,23 +45,28 @@ app.get("/api/eventlist", async (req, res) => {
 // get the ticketinformation taht matches the info
 app.get("/api/getticket", async (req, res) => {
   console.log("API/getTicket");
+  // hämta id
   let ticketId = req.query.id;
 
   const responseObject = {
     success: true,
     ticket: "",
-    ordernr: "",
+    ticketnr: "",
   };
 
   console.log(`ticketid ${ticketId}`);
+  // hämta eventet som matchar id:et
   let ticket = await getEventById(ticketId);
 
   responseObject.ticket = ticket;
-  const ordernr = genereateTicketNr();
+  // kalla på generateTicket som ger mig ett order/ticketnr
+  const ticketnr = genereateTicketNr();
 
-  responseObject.ordernr = ordernr;
-  console.log(responseObject.ordernr);
-  saveTicketOrder(ordernr, ticketId);
+  responseObject.ticketnr = ticketnr;
+  // console.log(responseObject.ticketnr);
+  // spara ner ordern med ticketnr och id på eventet
+  saveTicketOrder(ticketnr, ticketId);
+
   res.json(responseObject);
 });
 
@@ -73,14 +78,14 @@ app.post("/api/createaccount", async (req, res) => {
     success: true,
     usernameExist: false,
   };
-
+  //  finns username?
   const usernameExist = await getAccountByUsername(credentials.username);
 
   if (usernameExist.length > 0) {
     responseObject.success = false;
     responseObject.usernameExist = true;
   }
-
+  //  om användaren inte finns tilldelas roll, vi hashar lösenordet och sparar
   if (responseObject.usernameExist == false) {
     if (credentials.username == "user") {
       credentials.role = "user";
@@ -152,17 +157,35 @@ app.get("/api/logout", (req, res) => {
   res.json(responseObject);
 });
 
-app.post("/api/verify", async (req, res) => {
+app.post("/api/verify", staff, async (req, res) => {
+  const token = req.headers.authorization.replace("Bearer ", "");
+  console.log(`token ${token}`);
+
   const ticket = req.body;
   console.log(ticket);
   const responseObject = {
     ticket: "",
     ticketIsVAlid: "",
     ticketAlreadyVerified: "",
+    loggedIn: false,
   };
 
+  try {
+    const data = jwt.verify(token, "a1b2c3");
+    console.log(`data ${JSON.stringify(data)}`);
+
+    // username
+    console.log(data.username);
+
+    if (data) {
+      responseObject.loggedIn = true;
+    }
+  } catch (error) {
+    responseObject.message = "token has expired";
+  }
+
   const answer = await verifyticketNr(ticket);
-  console.log("ANSER");
+  console.log("ANSWER");
   console.log(answer);
 
   responseObject.ticketIsVAlid = answer.verifiednow;

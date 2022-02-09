@@ -31,7 +31,7 @@ async function getEventInfo(ticketId) {
   let data = await res.json();
   console.log(data.ticket);
   setContentToElements(data.ticket);
-  ticket.innerText = data.ordernr;
+  ticket.innerText = data.ticketnr;
 }
 
 getTicketIdFromUrl();

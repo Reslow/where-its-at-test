@@ -129,7 +129,6 @@ async function verifyticketNr(ticket) {
 
   if (verified) {
     if (verified.verify == false) {
-      console.log("hejhopp");
       // if false then update to true (true = verified)
       await database.update(
         { "tickets.ticketid": ticketnr },
