@@ -1,8 +1,8 @@
-const { getAccountByUsername } = require("../databse/operations");
+const { getAccountByUsername } = require("../database/operations");
 
 async function staff(req, res, next) {
   const user = req.body;
-  console.log(user.username);
+  // console.log(user.username);
   const account = getAccountByUsername(user.username);
   try {
     if (account.length == 0) {

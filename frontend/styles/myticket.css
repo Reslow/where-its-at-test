@@ -4,12 +4,11 @@ body {
   background-color: #221f40;
   background-image: linear-gradient(to bottom, #d36a99, #221f40 50%);
   height: 100vh;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: rgba(0, 0, 0, 0.726);
+  font-family: "Fira Sans", sans-serif;
 }
 
 h2 {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin: 0px;
 }
 
@@ -22,6 +21,7 @@ main {
 }
 
 .headline {
+  font-family: "Sansita", sans-serif;
   color: #221f40;
   text-align: center;
   letter-spacing: 0.5rem;
@@ -38,7 +38,6 @@ main {
 
 #ticketContainer p {
   color: rgba(0, 0, 0, 0.288);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin: 0px;
 }
 

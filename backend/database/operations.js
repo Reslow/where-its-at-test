@@ -1,6 +1,8 @@
+// ***NEDB setup***
 const nedb = require("nedb-promise");
 const database = new nedb({ filename: "accounts.db", autoload: true });
 
+// ***List of events***
 const eventList = {
   type: "event",
   events: [
@@ -51,72 +53,96 @@ const eventList = {
   ],
 };
 
-// ***event operations***
+// ***eventList operations***
+// insert list of db is empty
 async function saveEvents() {
   const db = await database.find({});
   if (db == 0) database.insert(eventList.events);
 }
-
+// returning eventitems in database
 async function getEvents() {
   const eventItems = await database.find({ type: "event" });
   return eventItems;
 }
 
-async function getInfoById(idnr) {
-  const eventItems = await database.find({ _id: idnr });
+// ***event operations***
 
-  return eventItems;
-}
-
-async function getInfoByTitle(title) {
-  const event = await database.find({ title: title });
+// returning the event that matches with id
+async function getEventById(idnr) {
+  const event = await database.find({ _id: idnr });
 
   return event;
 }
 
+// // returning the event that matches with title
+// async function getEventByTitle(title) {
+//   const event = await database.find({ title: title });
+
+//   return event;
+// }
+
+// *** ticket operations***
+
+// saving order
+
 async function saveTicketOrder(ticket, eventid) {
-  console.log(ticket);
-  let event = await getInfoById(eventid);
+  // console.log(ticket);
+  // getting the event based on id
+  let event = await getEventById(eventid);
+  // How many tickets is there?
   let tickets = event[0].tickets.length;
+  // what is the ticket limit?
   let numbers = event[0].numberofTickets;
 
+  // if I have less tickets than the limit, then I update  and  push  in ticketnr (saving ticket)
   if (tickets < numbers) {
-    console.log(eventid);
-    let a = await database.update(
+    // console.log(eventid);
+    await database.update(
       { _id: eventid },
       { $push: { tickets: { ticketid: ticket, verify: false } } }
     );
-    console.log(event[0].tickets);
-    console.log(a);
+    // console.log(event[0].tickets);
   } else {
     console.log("no more tickets!");
   }
 }
 
+// verify ticketnr
 // kolla om det finsn en biljett med biljettnummret, om det finns och ver = true så är den redan kollad och ogiltig,
 
 async function verifyticketNr(ticket) {
-  const num = ticket.ticket;
-  const tickArr = await database.find({ "tickets.ticketid": num });
+  const ticketnr = ticket.ticket;
+  // get the right eventobj
+  const tickArr = await database.find({ "tickets.ticketid": ticketnr });
   console.log(`arr ${JSON.stringify(tickArr[0])}`);
-
+  // create a responseobj
   const responsObject = {
     aldredyVerified: false,
     verifiednow: false,
-    ticketnr: num,
+    ticketnr: ticketnr,
   };
   console.log(tickArr[0].tickets[0]);
-  let arr = tickArr[0].tickets[0];
+  // if verfied is true or false
+  let verified = tickArr[0].tickets[0];
+  console.log("CHECK STATION");
+  console.log(verified);
 
-  if (arr && arr == false) {
-    await database.update(
-      { "tickets.ticketid": num },
-      { $set: { tickets: { ticketid: num, verify: true } } }
-    );
-    responsObject.verifiednow = true;
+  if (verified) {
+    if (verified.verify == false) {
+      console.log("hejhopp");
+      // if false then update to true (true = verified)
+      await database.update(
+        { "tickets.ticketid": ticketnr },
+        { $set: { tickets: [{ ticketid: ticketnr, verify: true }] } }
+      );
+      responsObject.verifiednow = true;
+    } else if (verified.verify == true) {
+      console.log("hopp");
+      console.log("ticket has been verified");
+      responsObject.aldredyVerified = true;
+    }
   } else {
-    console.log("ticket has been verified");
-    responsObject.aldredyVerified = true;
+    console.log("no verified item");
   }
   return responsObject;
 }
@@ -134,8 +160,8 @@ async function getAccountByUsername(username) {
 module.exports = {
   saveEvents,
   getEvents,
-  getInfoByTitle,
-  getInfoById,
+  // getEventByTitle,
+  getEventById,
   saveAccount,
   getAccountByUsername,
   saveTicketOrder,

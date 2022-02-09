@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
-
 app.use(express.static("../frontend"));
 app.use(express.json());
 
@@ -9,27 +8,25 @@ app.use(express.json());
 const {
   getEvents,
   saveEvents,
-  getInfoById,
+  getEventById,
   getAccountByUsername,
   saveAccount,
   saveTicketOrder,
   verifyticketNr,
-} = require("./databse/operations");
+} = require("./database/operations");
 
-// saving eventList, maybe should change thid so only save if we have not saved before
+// saving eventList when starting the server!
 saveEvents();
 
-// linking to bcrypt
+// linking to bcrypt and middleware for checking role
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
 const { staff } = require("./middleware/auth");
 
 // Generateing a number of letters and numbers
-function genereateOrderNr() {
+function genereateTicketNr() {
   const letters = ["Z", "Y", "A"];
   const randomLetters = letters[Math.floor(Math.random() * letters.length)];
   const randomNr = Math.floor(Math.random() * 10000);
-  console.log(randomLetters);
-  console.log(randomNr);
   return `WIA${randomNr}${randomLetters}`;
 }
 
@@ -57,10 +54,10 @@ app.get("/api/getticket", async (req, res) => {
   };
 
   console.log(`ticketid ${ticketId}`);
-  let ticket = await getInfoById(ticketId);
+  let ticket = await getEventById(ticketId);
 
   responseObject.ticket = ticket;
-  const ordernr = genereateOrderNr();
+  const ordernr = genereateTicketNr();
 
   responseObject.ordernr = ordernr;
   console.log(responseObject.ordernr);

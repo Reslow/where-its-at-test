@@ -21,7 +21,7 @@ header h1 {
 }
 
 header h3 {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-weight: lighter;
   letter-spacing: 5px;
 }
@@ -63,7 +63,7 @@ input {
 input::placeholder {
   color: rgb(32, 32, 32);
   text-align: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Fira Mono", monospace;
   font-weight: bolder;
   letter-spacing: 3px;
 }
