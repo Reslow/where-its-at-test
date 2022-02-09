@@ -1,8 +1,4 @@
-{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":[{"ticketid":"WIA6597Z","verify":true},{"ticketid":"WIA7378Y","verify":false}],"_id":"6FxlXKOFhO51kgqz"}
-{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"tickets":[{"ticketid":"WIA2718Y","verify":false}],"_id":"9YVIx2JwDg1vV8g7"}
-{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"tickets":[{"ticketid":"WIA6082Z","verify":false}],"_id":"J54Zi1vpHEAys8pj"}
-{"username":"user","password":"$2a$10$gBTGmJHTOqdUZa6lrze5KeoUTsms8IA8rXJDUB5RkycV1/tRFPOz6","role":"user","_id":"bXaFbjgVqGsU2lzw"}
-{"username":"a","password":"$2a$10$YWdyS.3BaxJkCSwmhSc8/epAWKg/Bmu/vQgPTnk6QA.P3pkeqS4K2","role":"staff","_id":"eno1aV8DLnkTFxyL"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[],"_id":"gzuR5oh7Jehe99At"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{"ticketid":"WIA5724A","verify":false}],"_id":"gzuR5oh7Jehe99At"}
-{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{"ticketid":"WIA5724A","verify":true}],"_id":"gzuR5oh7Jehe99At"}
+{"type":"event","title":"Pelle trubadu","location":"pubelipuben","from":"22:00","to":"00:00","date":"29 mars","price":110,"numberofTickets":3,"tickets":[{"ticketid":"WIA8545Y","verify":false},{"ticketid":"WIA6144A","verify":false},{"ticketid":"WIA7165Y","verify":false}],"_id":"1Wk68HIIJ2GjX3VV"}
+{"type":"event","title":"Klubben Untz","location":"Din favoritkällare","from":"22:00","to":"du tröttnar","date":"17 april","price":150,"numberofTickets":3,"tickets":[],"_id":"B13bZc7NCNzvAU5V"}
+{"type":"event","title":"Lasse-Stefanz","location":"Kjell Härnqvistsalen","from":"19:00 ","to":"21:00","date":"21 mars","price":350,"numberofTickets":2,"tickets":[{"ticketid":"WIA7214Z","verify":false}],"_id":"hTaDGtpbn1fab0Or"}
+{"type":"event","title":"Kajsas Kör","location":"Göta Platsen","from":"15:00","to":"16:00","date":"10 april","price":99,"numberofTickets":1,"tickets":[],"_id":"mWDyomuRv4SdigUD"}

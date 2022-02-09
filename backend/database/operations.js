@@ -93,6 +93,10 @@ async function saveTicketOrder(ticket, eventid) {
   let tickets = event[0].tickets.length;
   // what is the ticket limit?
   let numbers = event[0].numberofTickets;
+  const responsObject = {
+    count: numbers - tickets,
+    empty: false,
+  };
 
   // if I have less tickets than the limit, then I update  and  push  in ticketnr (saving ticket)
   if (tickets < numbers) {
@@ -103,8 +107,9 @@ async function saveTicketOrder(ticket, eventid) {
     );
     // console.log(event[0].tickets);
   } else {
-    console.log("no more tickets!");
+    responsObject.empty = true;
   }
+  return responsObject;
 }
 
 // verify ticketnr
@@ -142,7 +147,7 @@ async function verifyticketNr(ticket) {
       console.log("ticket has been verified");
       responsObject.aldredyVerified = true;
     }
-  } else if (verified.tickets[0].length === 0) {
+  } else if (!verified) {
     console.log("no verified item");
     responsObject.nothingToVerify = true;
   }

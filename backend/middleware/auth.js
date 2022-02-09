@@ -1,6 +1,5 @@
 const { getAccountByUsername } = require("../database/operations");
 const jwt = require("jsonwebtoken");
-const { response } = require("express");
 
 async function staff(req, res, next) {
   const token = req.headers.authorization.replace("Bearer ", "");

@@ -16,11 +16,12 @@ function createEventCard(eventItem) {
     "href",
     `http://localhost:3000/myticket.html?id=${eventItem._id}`
   );
-  eventCon.appendChild(eventCard);
 
+  eventCon.appendChild(eventCard);
   createElements(eventCard, eventItem);
-  // console.log("eventitem");
-  // console.log(eventItem);
+  if (eventItem.numberofTickets - eventItem.tickets.length < 1) {
+    eventCard.classList.add("disable");
+  }
 }
 
 function createElements(eventCard, eventItem) {
@@ -44,6 +45,8 @@ function createElements(eventCard, eventItem) {
   eventTo.classList.add("eventTo");
   const eventPrice = document.createElement("p");
   eventPrice.classList.add("eventPrice");
+  const eventCount = document.createElement("p");
+  eventCount.classList.add("count");
 
   setContent({
     eventItem,
@@ -53,8 +56,13 @@ function createElements(eventCard, eventItem) {
     eventFrom,
     eventTo,
     eventPrice,
+    eventCount,
   });
-  eventCardMiddleAndRightSection.append(eventCardMiddleSection, eventPrice);
+  eventCardMiddleAndRightSection.append(
+    eventCardMiddleSection,
+    eventPrice,
+    eventCount
+  );
   eventCardTimeSection.append(eventFrom, eventTo);
   eventCardMiddleSection.append(
     eventTitle,
@@ -72,20 +80,20 @@ function setContent({
   eventTo,
   eventPrice,
   eventDate,
+  eventCount,
 }) {
+  let count = eventItem.numberofTickets - eventItem.tickets.length;
   eventDate.innerText = `${eventItem.date}`;
   eventTitle.innerText = `${eventItem.title}`;
   eventLocation.innerText = `${eventItem.location}`;
   eventFrom.innerText = `${eventItem.from} -  `;
   eventTo.innerText = ` ${eventItem.to}`;
   eventPrice.innerText = `${eventItem.price} SEK`;
+  eventCount.innerText = `${count} st`;
 }
 
 function ShowEventList(eventList) {
-  // console.log("SHOW ARRAY");
-  // console.log(eventList);
   eventList.forEach((eventItem) => {
-    // console.log(eventItem);
     createEventCard(eventItem);
   });
 }

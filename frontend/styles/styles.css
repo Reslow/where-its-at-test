@@ -99,3 +99,7 @@ main {
 .eventTo {
   margin-left: 5px;
 }
+
+.disable {
+  pointer-events: none;
+}

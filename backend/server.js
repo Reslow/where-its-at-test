@@ -21,6 +21,7 @@ saveEvents();
 // linking to bcrypt and middleware for checking role
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
 const { staff } = require("./middleware/auth");
+const { response } = require("express");
 
 // Generateing a number of letters and numbers
 function genereateTicketNr() {
@@ -52,6 +53,7 @@ app.get("/api/getticket", async (req, res) => {
     success: true,
     ticket: "",
     ticketnr: "",
+    count: "",
   };
 
   console.log(`ticketid ${ticketId}`);
@@ -65,8 +67,9 @@ app.get("/api/getticket", async (req, res) => {
   responseObject.ticketnr = ticketnr;
   // console.log(responseObject.ticketnr);
   // spara ner ordern med ticketnr och id på eventet
-  saveTicketOrder(ticketnr, ticketId);
-
+  let ticketsLeft = await saveTicketOrder(ticketnr, ticketId);
+  console.log(ticketsLeft);
+  responseObject.count = ticketsLeft;
   res.json(responseObject);
 });
 

@@ -26,10 +26,8 @@ function getTicketIdFromUrl() {
 
 // send get request to server to get the whole object of ticketinfo
 async function getEventInfo(ticketId) {
-  console.log(ticketId);
   const res = await fetch(`http://localhost:3000/api/getticket?id=${ticketId}`);
   let data = await res.json();
-  console.log(data.ticket);
   setContentToElements(data.ticket);
   ticket.innerText = data.ticketnr;
 }
