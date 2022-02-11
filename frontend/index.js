@@ -4,7 +4,6 @@ let eventCon = document.getElementById("eventCon");
 async function getEventList() {
   const res = await fetch("http://localhost:3000/api/eventlist");
   const data = await res.json();
-  // console.log(data);
   ShowEventList(data.event);
 }
 

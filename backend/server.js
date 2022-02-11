@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 app.use(express.static("../frontend"));
 app.use(express.json());
 
-// linking for db operations
+// links for db operations
 const {
   getEvents,
   saveEvents,
@@ -18,34 +18,31 @@ const {
 // saving eventList when starting the server!
 saveEvents();
 
-// linking to bcrypt and middleware for checking role
+// links to bcrypt and middleware for checking role
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
 const { staff } = require("./middleware/auth");
 
-// Generateing a number of letters and numbers
+// Generating a ticketnumber of letters and numbers
 function genereateTicketNr() {
   const letters = ["Z", "Y", "A"];
   const randomLetters = letters[Math.floor(Math.random() * letters.length)];
   const randomNr = Math.floor(Math.random() * 10000);
-  console.log(randomNr);
   return `WIA${randomNr}${randomLetters}`;
 }
 
-//  looking for events thats is saved
+//  looking for events in db and send it back to frontend
 app.get("/api/eventlist", async (req, res) => {
   const responseObject = {
     success: true,
     event: "",
   };
-
   let event = await getEvents();
   responseObject.event = event;
   res.json(responseObject);
 });
 
-// get the ticketinformation taht matches the info
+// get the ticketinformation that matches the id
 app.get("/api/getticket", async (req, res) => {
-  console.log("API/getTicket");
   // hämta id
   let ticketId = req.query.id;
 
@@ -56,19 +53,15 @@ app.get("/api/getticket", async (req, res) => {
     count: "",
   };
 
-  console.log(`ticketid ${ticketId}`);
-  // hämta eventet som matchar id:et
   let ticket = await getEventById(ticketId);
 
   responseObject.ticket = ticket;
-  // kalla på generateTicket som ger mig ett order/ticketnr
+
   const ticketnr = genereateTicketNr();
 
   responseObject.ticketnr = ticketnr;
-  // console.log(responseObject.ticketnr);
-  // spara ner ordern med ticketnr och id på eventet
+  // save order with nr and eventid, and get back response that says if event is full (empty === true)
   let ticketsLeft = await saveTicketOrder(ticketnr, ticketId);
-  console.log(ticketsLeft);
   responseObject.count = ticketsLeft;
   res.json(responseObject);
 });
@@ -81,20 +74,23 @@ app.post("/api/createaccount", async (req, res) => {
     success: true,
     usernameExist: false,
   };
-  //  finns username?
+
   const usernameExist = await getAccountByUsername(credentials.username);
 
   if (usernameExist.length > 0) {
     responseObject.success = false;
     responseObject.usernameExist = true;
   }
-  //  om användaren inte finns tilldelas roll, vi hashar lösenordet och sparar
+
+  // if user does not exist, we give it a role, hash pwd and save to db
+  //  for testing I only give users with username 'users' the role : user
   if (responseObject.usernameExist == false) {
     if (credentials.username == "user") {
       credentials.role = "user";
     } else {
       credentials.role = "staff";
     }
+    // hash password
     const hashedPassword = await hashPassword(credentials.password);
     credentials.password = hashedPassword;
     saveAccount(credentials);
@@ -108,10 +104,9 @@ app.post("/api/login", async (req, res) => {
   const responseObject = {
     success: false,
     token: "",
-    msg: "",
   };
   const account = await getAccountByUsername(credentials.username);
-  // console.log(account);
+
   if (account.length > 0) {
     const isCorrectPassword = await comparePassword(
       credentials.password,
@@ -119,9 +114,9 @@ app.post("/api/login", async (req, res) => {
     );
     if (isCorrectPassword) {
       responseObject.success = true;
-      // token krypterad med användarnamn (kopplat till användaren)
+      //  token is signed with username and expires in 10 min
       const token = jwt.sign({ username: account[0].username }, "a1b2c3", {
-        expiresIn: 60,
+        expiresIn: 600,
       });
 
       responseObject.token = token;
@@ -131,12 +126,12 @@ app.post("/api/login", async (req, res) => {
 });
 
 app.get("/api/loggedin", async (req, res) => {
-  console.log("--LOGGEDIN SEVRER");
   const token = req.headers.authorization.replace("Bearer ", "");
 
   const responseObject = {
     loggedIn: false,
   };
+  // verify token and if true  = assign loggedin => true
 
   try {
     const data = jwt.verify(token, "a1b2c3");
@@ -145,15 +140,12 @@ app.get("/api/loggedin", async (req, res) => {
       responseObject.loggedIn = true;
     }
   } catch (error) {
-    responseObject.message = "token has expired";
+    responseObject.message = "token is invalid";
   }
   res.json(responseObject);
 });
 
 app.get("/api/logout", (req, res) => {
-  console.log("--/API/LOGOUT--");
-  res.clearCookie("loggedIn");
-
   let responseObject = {
     success: "true",
   };
@@ -163,29 +155,15 @@ app.get("/api/logout", (req, res) => {
 
 app.post("/api/verify", staff, async (req, res) => {
   const token = req.headers.authorization.replace("Bearer ", "");
-  console.log(`token ${token}`);
 
   const ticket = req.body;
-  console.log(ticket);
   const responseObject = {
     ticket: "",
     ticketIsValid: "",
     ticketAlreadyVerified: "",
-    loggedIn: false,
     valueDoesNotExistInDB: false,
     atleastFiveCharacters: false,
   };
-
-  try {
-    const data = jwt.verify(token, "a1b2c3");
-    console.log(`data ${JSON.stringify(data)}`);
-
-    if (data) {
-      responseObject.loggedIn = true;
-    }
-  } catch (error) {
-    responseObject.message = "token has expired";
-  }
 
   if (ticket.ticket.length < 7) {
     responseObject.atleastFiveCharacters = true;

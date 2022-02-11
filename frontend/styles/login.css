@@ -1,9 +1,12 @@
+/* main */
+
 body {
   background-color: #e69952;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
 }
+/* header */
 
 header {
   margin-bottom: 100px;
@@ -25,6 +28,8 @@ header h3 {
   font-weight: lighter;
   letter-spacing: 5px;
 }
+
+/* login elements */
 
 .container {
   display: flex;
@@ -68,7 +73,7 @@ input::placeholder {
   letter-spacing: 3px;
 }
 
-/* link */
+/* login/signup switch */
 #toIndex {
   display: flex;
 
@@ -84,6 +89,7 @@ input::placeholder {
   text-decoration-line: none;
   margin-bottom: 25%;
 }
+
 #toIndex p {
   width: 100%;
 }

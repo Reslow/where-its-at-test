@@ -19,8 +19,6 @@ function getTicketIdFromUrl() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const ticketId = urlParams.get("id");
-  console.log(`id =: ` + ticketId);
-  console.log(ticketId);
   getEventInfo(ticketId);
 }
 

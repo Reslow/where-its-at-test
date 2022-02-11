@@ -17,7 +17,6 @@ function saveToken(token) {
 
 // post credentials to server  to check account in db and redirect  to verify/ticket
 async function login(credentials) {
-  console.log("--LOGIN--");
   const res = await fetch("http://localhost:3000/api/login", {
     method: "POST",
     body: JSON.stringify(credentials),
@@ -26,9 +25,7 @@ async function login(credentials) {
     },
   });
   const data = await res.json();
-  console.log(data);
   if (data.success) {
-    console.log(data);
     saveToken(data.token);
     window.location.href = "http://localhost:3000/verifyticket.html";
   }
@@ -36,7 +33,6 @@ async function login(credentials) {
 
 // post credentials to server  to save account
 async function signup(credentials) {
-  console.log("--SIGNUP--");
   const res = await fetch("http://localhost:3000/api/createaccount", {
     method: "POST",
     body: JSON.stringify(credentials),
@@ -45,7 +41,6 @@ async function signup(credentials) {
     },
   });
   const data = await res.json();
-  console.log(data);
 }
 
 // toggle login and create account
@@ -54,7 +49,6 @@ ToCreateAccountBtn.addEventListener("click", () => {
   signupCon.classList.toggle("show");
 
   if (ToCreateAccountBtn.value == "Login") {
-    console.log(ToCreateAccountBtn.value);
     ToCreateAccountBtn.value = "Create Account";
   } else {
     ToCreateAccountBtn.value = "Login";

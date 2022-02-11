@@ -7,7 +7,6 @@ let responseTicket = document.getElementById("messageTicket");
 // check if user is loggedin ifnot redirect
 
 async function isUserLoggedIn() {
-  console.log("--IS USER LOGGEDIN--");
   const token = sessionStorage.getItem("token");
 
   const res = await fetch("http://localhost:3000/api/loggedin", {
@@ -16,8 +15,6 @@ async function isUserLoggedIn() {
     },
   });
   const data = await res.json();
-
-  console.log(data);
 
   if (data.loggedIn == false) {
     window.location.href = "http://localhost:3000/";
@@ -28,7 +25,6 @@ async function logOut() {
   let res = await fetch("http://localhost:3000/api/logout");
 
   let data = await res.json();
-  console.log(data);
 
   if (data.success) {
     sessionStorage.clear();
@@ -37,8 +33,6 @@ async function logOut() {
 }
 
 async function verifyticketNr(ticket) {
-  console.log(ticket);
-  console.log(typeof ticket);
   const token = sessionStorage.getItem("token");
 
   const res = await fetch("http://localhost:3000/api/verify", {
@@ -50,7 +44,6 @@ async function verifyticketNr(ticket) {
     },
   });
   const data = await res.json();
-  console.log(data);
   message(data);
 
   if (data.sessionHasExpired === false) {
@@ -58,7 +51,6 @@ async function verifyticketNr(ticket) {
       responseTicket.innerText = `not authorized!`;
     }
   } else if (data.sessionHasExpired === true) {
-    console.log("session has expired, please log in again!");
     window.location.href = "http://localhost:3000/login.html";
   }
 }
@@ -84,7 +76,6 @@ function message(ticketResponse) {
 
 verifyBtn.addEventListener("click", () => {
   const ticketNr = verifyInput.value;
-  console.log(ticketNr);
   verifyticketNr(ticketNr);
 });
 

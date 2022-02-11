@@ -55,12 +55,13 @@ const eventList = {
 
 // ***eventList operations***
 
-// insert list of db is empty
+// insert list if db is empty when starting server
 async function saveEvents() {
   const db = await database.find({});
   if (db == 0) database.insert(eventList.events);
 }
-// returning eventitems in database
+
+// returning eventitems from database
 async function getEvents() {
   const eventItems = await database.find({ type: "event" });
   return eventItems;
@@ -68,7 +69,7 @@ async function getEvents() {
 
 // ***event operations***
 
-// returning the event that matches with id
+// returning the event that matches id
 async function getEventById(idnr) {
   const event = await database.find({ _id: idnr });
 
@@ -77,9 +78,8 @@ async function getEventById(idnr) {
 
 // ***ticket operations***
 
-// saving order
-async function saveTicketOrder(ticket, eventid) {
-  // console.log(ticket);
+// saving ticket when order is made(clicked on event)
+async function saveTicketOrder(ticketnr, eventid) {
   // getting the event based on id
   let event = await getEventById(eventid);
   // How many tickets is there?
@@ -91,27 +91,23 @@ async function saveTicketOrder(ticket, eventid) {
     empty: false,
   };
 
-  // if I have less tickets than the limit, then I update  and  push  in ticketnr (saving ticket)
+  // if there is less tickets than the limit, I update  and  push  in ticketnr (saving ticket)
   if (tickets < numbers) {
-    console.log(eventid);
     await database.update(
       { _id: eventid },
-      { $push: { tickets: { ticketid: ticket, verify: false } } }
+      { $push: { tickets: { ticketnr: ticketnr, verify: false } } }
     );
-    console.log(event[0].tickets);
   } else {
     responsObject.empty = true;
   }
   return responsObject;
 }
 
-// check if there is a ticket with ticketnr and if so then update verify to true, if true the checked & verified
-
+// check if there is a ticket with nr and if so then update verify to true, if true the ticket is already checked & verified
 async function verifyticketNr(ticket) {
   // ticketnr => input the staff has written
   const ticketnr = ticket.ticket;
-  const tickObj = await database.find({ "tickets.ticketid": ticketnr });
-  console.log(`arr ${JSON.stringify(tickObj[0])}`);
+  const tickObj = await database.find({ "tickets.ticketnr": ticketnr });
 
   const responsObject = {
     alreadyVerified: false,
@@ -125,17 +121,15 @@ async function verifyticketNr(ticket) {
   } else {
     let verifiedAsArr = tickObj[0].tickets;
     verifiedAsArr.forEach((element) => {
-      console.log(`lement  ${element.ticketid}`);
-      if (element.ticketid === ticketnr) {
+      if (element.ticketnr === ticketnr) {
         if (element.verify === false) {
-          console.log("its THE SAME");
           updateTickets(ticketnr);
           responsObject.verifiednow = true;
         } else {
           responsObject.alreadyVerified = true;
         }
       } else {
-        responsObject.numberDoesNotExistInTheDB = true;
+        responsObject.valueDoesNotExistInTheDB = true;
       }
     });
   }
@@ -143,22 +137,11 @@ async function verifyticketNr(ticket) {
 }
 
 async function updateTickets(ticketnr) {
-  console.log("update!");
   await database.update(
-    { "tickets.ticketid": ticketnr },
-    { $set: { tickets: [{ ticketid: ticketnr, verify: true }] } }
+    { "tickets.ticketnr": ticketnr },
+    { $set: { tickets: [{ ticketnr: ticketnr, verify: true }] } }
   );
 }
-//       // console.log("ticket has been verified already");
-//       responsObject.aldredyVerified = true;
-//     }
-//     // if no mtach can be found, then we have nothing to verify!
-//   } else if (verified == undefined) {
-//     console.log("no verified item");
-//     responsObject.nothingToVerify = true;
-//   }
-//   return responsObject;
-// }
 
 //***account operations**
 function saveAccount(account) {

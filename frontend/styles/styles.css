@@ -1,5 +1,4 @@
 /* main */
-
 body {
   background-color: #221f40;
   font-family: "Fira Sans", sans-serif;
@@ -13,6 +12,8 @@ main {
   margin-bottom: 100px;
   padding: 10px;
 }
+
+/* header */
 
 .headline {
   color: #d36a99;
@@ -111,11 +112,11 @@ main {
   margin-bottom: 5px;
 }
 
-.disable {
-  pointer-events: none;
-}
-
 .count {
   min-width: 50px;
   text-align: center;
+}
+
+.disable {
+  pointer-events: none;
 }

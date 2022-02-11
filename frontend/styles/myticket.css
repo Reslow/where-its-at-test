@@ -19,6 +19,7 @@ main {
   margin-top: 50px;
   margin-bottom: 100px;
 }
+/* header */
 
 .headline {
   font-family: "Sansita", sans-serif;
@@ -26,6 +27,7 @@ main {
   text-align: center;
 }
 
+/* ticket/card */
 #ticketContainer {
   width: 95%;
   margin-right: auto;
