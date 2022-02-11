@@ -98,7 +98,7 @@ input::placeholder {
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 #TocreateAccount {
