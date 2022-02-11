@@ -113,3 +113,20 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+/* message */
+
+#messageSection {
+  color: #221f40;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 2em;
+  text-align: center;
+}
+
+#messageTicket {
+  color: #e31776;
+  font-size: 2em;
+  margin-bottom: 0px;
+}

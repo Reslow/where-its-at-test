@@ -6,11 +6,12 @@ body {
 }
 
 main {
-  max-width: 90%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 100px;
+  padding: 10px;
 }
 
 .headline {
@@ -57,8 +58,9 @@ main {
 .eventCardMiddleSection {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  line-height: 0%;
+  line-height: 100%;
+  overflow-wrap: break-word;
+  max-width: 70%;
 }
 
 .eventCardTimeSection {
@@ -68,9 +70,17 @@ main {
 .eventCardMiddleAndRightSection {
   border-bottom: 1px solid rgba(110, 110, 128, 0.685);
   display: flex;
-  min-width: 80%;
+  width: 70%;
   flex-direction: row;
   margin-left: 20px;
+  justify-content: space-evenly;
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .eventDate {
   border: 1px solid #d8d8d8;
@@ -83,6 +93,9 @@ main {
   align-self: self-end;
   color: #5fbbb8;
   margin: 5px;
+  padding-left: 5px;
+  font-weight: bold;
+  letter-spacing: -1px;
 }
 
 .eventLocation,
@@ -90,16 +103,13 @@ main {
 .eventFrom,
 .eventTo {
   font-family: "Fira Mono", monospace;
-}
-
-.eventPrice {
-  font-weight: bold;
-}
-
-.eventTo {
-  margin-left: 5px;
+  margin-bottom: 5px;
 }
 
 .disable {
   pointer-events: none;
+}
+
+.count {
+  min-width: 50px;
 }

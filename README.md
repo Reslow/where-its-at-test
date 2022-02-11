@@ -1,24 +1,22 @@
 # whereitsat
 
-Inlämning 2022 Fanny Reslow
+assignment Jensen yh
+Created by 2022 Fanny Reslow
 
-Instruktioner:
-Du ska skapa ett biljettsystem där en användare kan välja ett event och sedan lägga en beställning på en biljett och få tillbaka ett biljettnummer.
-En person som arbetar som personal kan logga in och verifiera biljetten.
+Instructions:
+Create a ticketsystem,
+a user can pick a event/lay an order on a ticket and receive a ticket number
 
-## app
+A staff-role can log in and verify tickets
 
-<!-- - Det går att lägga en beställning på en biljett och få ett biljettnr -->
+## Try Functions!
 
-<!-- - det går att verifiera biljetten -->
+You can create your own signup credentials and log in.
 
-- Man kan endast verifiera en biljett 1 gång
+HOWEVER!
+if you use username => " user "
+you will be given a user role
 
-- För att kunna att kunna verifiera en biljett krävs en staff - roll och att man är inloggad.
+otherwise you will be given a staff role
 
-<!-- - observera att de två vyerna (user/staff) är för olika syften och de ska inte hänga ihop, men staff-sidan kan länkas från exemplvis (eventssidan) -->
-
-<!-- - Det är ingen inloggning för userutan där kan man beställa en biljett direkt. -->
-
-- Det går att se antal biljetter kvar och när det är slutsålt går det inte att lägga en
-  beställning
+This is because the criteria of verifying the role when verify ticket.

@@ -1,6 +1,8 @@
 let logoutBtn = document.querySelector("#logoutBtn");
 let verifyInput = document.getElementById("verifyInput");
 let verifyBtn = document.getElementById("verifyBtn");
+let responseMessage = document.getElementById("message");
+let responseTicket = document.getElementById("messageTicket");
 
 // check if user is loggedin ifnot redirect
 
@@ -14,7 +16,7 @@ async function isUserLoggedIn() {
     },
   });
   const data = await res.json();
-  console.log("DATA from LOGGEDIN");
+
   console.log(data);
 
   if (data.loggedIn == false) {
@@ -29,6 +31,7 @@ async function logOut() {
   console.log(data);
 
   if (data.success) {
+    sessionStorage.clear();
     window.location.href = "http://localhost:3000/";
   }
 }
@@ -47,8 +50,36 @@ async function verifyticketNr(ticket) {
     },
   });
   const data = await res.json();
-  console.log(data.ticket);
   console.log(data);
+  message(data);
+
+  if (data.sessionHasExpired === false) {
+    if (data.staffRole === false) {
+      responseTicket.innerText = `not authorized!`;
+    }
+  } else if (data.sessionHasExpired === true) {
+    console.log("session has expired, please log in again!");
+    window.location.href = "http://localhost:3000/login.html";
+  }
+}
+
+function message(ticketResponse) {
+  if (ticketResponse.ticketIsValid == true) {
+    responseTicket.innerText = ` ${ticketResponse.ticket}`;
+    responseMessage.innerText = ` is V A L I D!`;
+  } else if (ticketResponse.ticketAlreadyVerified === true) {
+    responseTicket.innerText = ` ${ticketResponse.ticket}`;
+    responseMessage.innerText = ` is N O T  V A L I D! `;
+  } else if (ticketResponse.valueDoesNotExistInDB === true) {
+    responseTicket.innerText = ` ${ticketResponse.ticket}`;
+    responseMessage.innerText = ` is  N O T  V A L I D!`;
+  } else if (ticketResponse.atleastFiveCharacters === true) {
+    responseTicket.innerText = ``;
+    responseMessage.innerText = `a ticket contains atleast 7 characters!`;
+  } else {
+    responseTicket.innerText = ``;
+    responseMessage.innerText = ``;
+  }
 }
 
 verifyBtn.addEventListener("click", () => {

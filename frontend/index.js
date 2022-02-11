@@ -31,6 +31,8 @@ function createElements(eventCard, eventItem) {
   eventCardMiddleAndRightSection.classList.add(
     "eventCardMiddleAndRightSection"
   );
+  const eventCardRightSection = document.createElement("div");
+  eventCardRightSection.classList.add("rightSection");
   const eventCardTimeSection = document.createElement("div");
   eventCardTimeSection.classList.add("eventCardTimeSection");
   const eventDate = document.createElement("p");
@@ -58,10 +60,10 @@ function createElements(eventCard, eventItem) {
     eventPrice,
     eventCount,
   });
+  eventCardRightSection.append(eventCount, eventPrice);
   eventCardMiddleAndRightSection.append(
     eventCardMiddleSection,
-    eventPrice,
-    eventCount
+    eventCardRightSection
   );
   eventCardTimeSection.append(eventFrom, eventTo);
   eventCardMiddleSection.append(
@@ -88,7 +90,7 @@ function setContent({
   eventLocation.innerText = `${eventItem.location}`;
   eventFrom.innerText = `${eventItem.from} -  `;
   eventTo.innerText = ` ${eventItem.to}`;
-  eventPrice.innerText = `${eventItem.price} SEK`;
+  eventPrice.innerText = `${eventItem.price}:-`;
   eventCount.innerText = `${count} st`;
 }
 

@@ -21,13 +21,13 @@ saveEvents();
 // linking to bcrypt and middleware for checking role
 const { hashPassword, comparePassword } = require("./utils/bcrypt");
 const { staff } = require("./middleware/auth");
-const { response } = require("express");
 
 // Generateing a number of letters and numbers
 function genereateTicketNr() {
   const letters = ["Z", "Y", "A"];
   const randomLetters = letters[Math.floor(Math.random() * letters.length)];
   const randomNr = Math.floor(Math.random() * 10000);
+  console.log(randomNr);
   return `WIA${randomNr}${randomLetters}`;
 }
 
@@ -157,6 +157,7 @@ app.get("/api/logout", (req, res) => {
   let responseObject = {
     success: "true",
   };
+
   res.json(responseObject);
 });
 
@@ -168,10 +169,11 @@ app.post("/api/verify", staff, async (req, res) => {
   console.log(ticket);
   const responseObject = {
     ticket: "",
-    ticketIsVAlid: "",
+    ticketIsValid: "",
     ticketAlreadyVerified: "",
     loggedIn: false,
-    nothingToVerify: false,
+    valueDoesNotExistInDB: false,
+    atleastFiveCharacters: false,
   };
 
   try {
@@ -185,12 +187,17 @@ app.post("/api/verify", staff, async (req, res) => {
     responseObject.message = "token has expired";
   }
 
-  const answer = await verifyticketNr(ticket);
-  responseObject.nothingToVerify = answer.nothingToVerify;
-  responseObject.ticketIsVAlid = answer.verifiednow;
-  responseObject.ticketAlreadyVerified = answer.aldredyVerified;
-  responseObject.ticket = answer.ticketnr;
+  if (ticket.ticket.length < 7) {
+    responseObject.atleastFiveCharacters = true;
+  } else {
+    const ticketResponse = await verifyticketNr(ticket);
 
+    responseObject.valueDoesNotExistInDB =
+      ticketResponse.valueDoesNotExistInTheDB;
+    responseObject.ticketIsValid = ticketResponse.verifiednow;
+    responseObject.ticketAlreadyVerified = ticketResponse.alreadyVerified;
+    responseObject.ticket = ticketResponse.ticketnr;
+  }
   res.json(responseObject);
 });
 

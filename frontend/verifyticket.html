@@ -24,11 +24,20 @@
     </header>
     <main>
       <div class="container" id="verify">
-        <input type="text" id="verifyInput" placeholder="enter TicketNr" />
+        <input
+          type="text"
+          maxlength="8"
+          minlength="2"
+          id="verifyInput"
+          placeholder="A-B-C-0-0-0-0-Y"
+        />
 
         <button id="verifyBtn" class="btn">verify!</button>
       </div>
-      <p id="message">Valid/invalid</p>
+      <div id="messageSection">
+        <p id="messageTicket"></p>
+        <p id="message"></p>
+      </div>
     </main>
     <script src="verifyTicket.js"></script>
   </body>
